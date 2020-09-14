@@ -1,0 +1,18 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/BackgroundColor</item>
+        <item name="colorPrimaryDark">@color/PrimaryColor</item>
+        <item name="colorAccent">@color/FontColor</item>
+    </style>
+    <!-- General Default Text. -->
+    <style name="DefaultText">
+        <item name="android:fontFamily">@font/comic_font</item>
+        <item name="android:textColor">@color/FontColor</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:layout_margin">10dp</item>
+    </style>
+
+</resources>
