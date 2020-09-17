@@ -14,6 +14,7 @@
         android:layout_marginTop="120dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
+        android:transitionName="logo_image"
         android:src="@drawable/logo2"/>
     <TextView
         style="@style/DefaultText"
@@ -26,6 +27,7 @@
         android:text="Book unforgettable cars from trusted hosts around the world."/>
     <TextView
         android:id="@+id/titleView"
+        android:transitionName="logo_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"

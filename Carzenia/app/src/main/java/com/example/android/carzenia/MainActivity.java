@@ -2,9 +2,12 @@ package com.example.android.carzenia;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Pair;
+import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -43,9 +46,15 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-             startActivity(new Intent(MainActivity.this, LoginActivity.class));
-                finish();
+                Pair[] pairs = new Pair[2];
+                pairs[0] = new Pair<View, String>(logoImage, "logo_image");
+                pairs[1] = new Pair<View, String>(titleView, "logo_text");
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
+                    startActivity(new Intent(MainActivity.this, LoginActivity.class), options.toBundle());
+                    finish();
+                }
             }
-        }, 8000);
+        }, 3000);
     }
 }

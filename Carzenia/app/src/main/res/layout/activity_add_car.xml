@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/b3"
+    tools:context=".AddCarActivity">
+
+    <TextView
+        android:id="@+id/AddTextTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/cooper_font"
+        android:textSize="30dp"
+        android:textColor="@color/FontColor"
+        android:layout_marginTop="20dp"
+        android:text="ADD A NEW CAR"/>
+    <LinearLayout
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/AddTextTitle"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/NewCarImage"
+            android:layout_width="300dp"
+            android:layout_height="240dp"
+            android:scaleType="fitXY"
+            android:background="@drawable/rounded_corner"/>
+        <Button
+            style="@style/DefaultText"
+            android:id="@+id/UploadNewCarBtn"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_corner"
+            android:textSize="16dp"
+            android:text="Upload an image"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/HighlightColor"
+            android:hint="Car Type"
+            app:boxStrokeColor="@color/HighlightColor"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/CarTypeInput"
+                android:textColor="@color/FontColor"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/HighlightColor"
+            android:hint="Occasion"
+            android:textColor="@color/FontColor"
+            app:boxStrokeColor="@color/HighlightColor"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/CarOccassionInput"
+                android:textColor="@color/FontColor"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/HighlightColor"
+            android:hint="Price/Hour"
+            android:textColor="@color/FontColor"
+            app:boxStrokeColor="@color/HighlightColor"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/CarPriceInput"
+                android:textColor="@color/FontColor"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            style="@style/DefaultText"
+            android:id="@+id/AddNewCarBtn"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_corner2"
+            android:textSize="18dp"
+            android:textColor="#000"
+            android:text="Add The car"/>
+    </LinearLayout>
+
+</RelativeLayout>
