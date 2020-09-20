@@ -47,8 +47,12 @@ public class AddCarActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(validData()){
-                    helper.addCarToDB(typeInput.getText().toString(), occasionInput.getText().toString(), Integer.parseInt(priceInput.getText().toString()), bitmap);
+                    helper.addCarToDB(typeInput.getText().toString(), occasionInput.getText().toString(), priceInput.getText().toString(), bitmap);
                     Toast.makeText(AddCarActivity.this, "Car Added...", Toast.LENGTH_SHORT).show();
+                    carImage.setImageDrawable(null);
+                    typeInput.setText("");
+                    occasionInput.setText("");
+                    priceInput.setText("");
                 }
             }
         });

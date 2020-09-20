@@ -4,4 +4,6 @@
 
 2- Login & Signup Activities (Mai)
 
-3- Admin, AddCar & Database Creation (Kareem) 
+3- Admin, AddCar & Database Creation (Kareem)
+
+4- About, Contact & Display Cars For Admins Activities (Kareem)

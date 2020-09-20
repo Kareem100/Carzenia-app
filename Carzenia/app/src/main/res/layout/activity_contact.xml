@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/rounded_corner"
+    android:gravity="center_horizontal"
+    tools:context=".ContactActivity">
+
+    <TextView
+        style="@style/DefaultText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:background="@drawable/rounded_corner"
+        android:textColor="@color/FontColor"
+        android:textSize="30dp"
+        android:text="CONTACT US"/>
+<RadioGroup
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/HighlightColor"
+            android:fontFamily="@font/comic_font"
+            android:textSize="20dp"
+            android:text="Issue"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/HighlightColor"
+            android:fontFamily="@font/comic_font"
+            android:textSize="20dp"
+            android:layout_marginLeft="20dp"
+            android:text="Other"/>
+    </LinearLayout>
+</RadioGroup>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="Message Subject..."
+        android:textColor="@color/HighlightColor"
+        android:textSize="20dp"
+        android:maxLength="20"
+        android:textAlignment="center"/>
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="20dp"
+        android:hint="Your Message..."
+        android:textColor="@color/HighlightColor"
+        android:textSize="20dp"
+        android:maxLength="20"
+        android:textAlignment="center"/>
+    <Button
+        style="@style/DefaultText"
+        android:id="@+id/sendMessageBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner2"
+        android:textColor="#000"
+        android:text=" SEND..! "/>
+
+
+</LinearLayout>

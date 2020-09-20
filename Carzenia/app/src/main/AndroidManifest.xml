@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".DisplayCarsActivity"></activity>
+        <activity android:name=".ContactActivity"></activity>
+        <activity android:name=".AboutAppActivity" />
+        <activity android:name=".DisplayCarsActivity" />
         <activity android:name=".AddCarActivity" />
         <activity android:name=".AdminActivity" />
         <activity android:name=".SignupActivity" />

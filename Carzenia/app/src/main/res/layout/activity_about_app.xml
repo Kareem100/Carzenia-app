@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/rounded_corner"
+    tools:context=".AboutAppActivity">
+
+    <TextView
+        style="@style/DefaultText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner"
+        android:textSize="30dp"
+        android:textColor="#FFF"
+        android:text="About The App"/>
+
+    <TextView
+        style="@style/DefaultText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text=" Carzenia is a company that rents cars automobiles for short periods of time for a fee. It is often organized with numerous local branches and primarily located near airports or busy city areas and often complemented by an app allowing online reservations."/>
+
+    <TextView
+        style="@style/DefaultText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="Carzenia primarily serves people who have a car that is temporarily out of reach or out of service, for example travellers who are out of town or owners of damaged or destroyed vehicles who are awaiting repair or insurance compensation."/>
+
+    <Button
+        style="@style/DefaultText"
+        android:id="@+id/contactBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:background="@drawable/rounded_corner2"
+        android:textColor="#000"
+        android:textSize="18dp"
+        android:text=" Contact Us..."/>
+</LinearLayout>

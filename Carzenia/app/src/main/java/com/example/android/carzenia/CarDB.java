@@ -28,8 +28,8 @@ public class CarDB extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase database) {
-        database.execSQL("create table Car(ID integer primary key, Type text not null, " +
-                        "Occasion text not null, Price text not null, Image blop not null)");
+        database.execSQL("create table Car(ID INTEGER primary key, Type TEXT not null, " +
+                        "Occasion TEXT not null, Price TEXT not null, Image BLOB not null)");
     }
 
     @Override
@@ -45,7 +45,7 @@ public class CarDB extends SQLiteOpenHelper {
         Toast.makeText(context, "ALL CARS WERE DELETED !", Toast.LENGTH_SHORT).show();
     }
 
-    public void addCarToDB(String type, String occasion, int price, Bitmap bitmap){
+    public void addCarToDB(String type, String occasion, String price, Bitmap bitmap){
         processImage(bitmap);
         ContentValues row = new ContentValues();
         row.put("Type", type);
@@ -69,13 +69,12 @@ public class CarDB extends SQLiteOpenHelper {
         while(!cursor.isAfterLast()){
 
             // FIVE ATTRIBUTES FOR CAR INFO....
-            int ID = Integer.parseInt(cursor.getString(0));
+            int ID = cursor.getInt(0);
             String type = cursor.getString(1);
             String occasion = cursor.getString(2);
             String price = cursor.getString(3);
             ImageBytes = cursor.getBlob(4);
             Bitmap bitmap = BitmapFactory.decodeByteArray(ImageBytes, 0, ImageBytes.length);
-
             arrayList.add(new CarModel(ID, type, occasion, price, bitmap));
 
             cursor.moveToNext();
