@@ -2,21 +2,21 @@ package com.example.android.carzenia;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
-public class ContactActivity extends AppCompatActivity {
+public class AboutAppFragment extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contact);
+        setContentView(R.layout.about_app_fragment);
 
-        findViewById(R.id.sendMessageBtn).setOnClickListener(new View.OnClickListener(){
+        findViewById(R.id.contactBtn).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Toast.makeText(ContactActivity.this, "Your Message Has Been Sent !", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(AboutAppFragment.this, ContactFragment.class));
             }
         });
     }

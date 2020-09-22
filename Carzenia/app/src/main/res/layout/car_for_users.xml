@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal">
+
+    <LinearLayout
+        android:layout_width="342dp"
+        android:layout_height="476dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/b1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/carimg"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            android:background="@drawable/rounded_corner"
+            android:padding="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/backround" />
+
+        <TextView
+            android:id="@+id/ID"
+            style="@style/DefaultText"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:text="CAR ID"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/type"
+            style="@style/DefaultText"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:text="CAR TYPE"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/occasion"
+            style="@style/DefaultText"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:text="CAR OCCASION"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/price"
+            style="@style/DefaultText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:background="@drawable/border"
+            android:text="CAR PRICE / HOUR"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="129dp"
+            android:layout_height="48dp"
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/rentbtn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/rounded_corner2"
+                android:text="Rent"
+                android:textColor="@color/FontColor" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

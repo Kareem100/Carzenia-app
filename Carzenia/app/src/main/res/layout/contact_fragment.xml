@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="@drawable/rounded_corner"
     android:gravity="center_horizontal"
-    tools:context=".ContactActivity">
+    tools:context=".ContactFragment">
 
     <TextView
         style="@style/DefaultText"

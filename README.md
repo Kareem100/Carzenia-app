@@ -7,3 +7,9 @@
 3- Admin, AddCar & Database Creation (Kareem)
 
 4- About, Contact & Display Cars For Admins Activities (Kareem)
+
+5- Display Cars For User Activity (Manar)
+
+6- Rent Form Activity (Youssef)
+
+7- User Profile Activity (Mai)

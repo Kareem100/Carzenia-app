@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/rounded_corner"
-    tools:context=".AboutAppActivity">
+    tools:context=".AboutAppFragment">
 
     <TextView
         style="@style/DefaultText"

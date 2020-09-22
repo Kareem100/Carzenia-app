@@ -7,6 +7,12 @@
         <item name="colorPrimaryDark">@color/PrimaryColor</item>
         <item name="colorAccent">@color/FontColor</item>
         <item name="android:windowContentTransitions">true</item>
-
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
 </resources>
