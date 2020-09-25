@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/b3"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/cooper_font"
+        android:text="RENT FORM"
+        android:textColor="@color/FontColor"
+        android:textSize="30dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/DefaultText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="18dp"
+            android:text="Car ID"
+            android:textColor="@color/HighlightColor" />
+
+        <Spinner
+            android:id="@+id/spinner3"
+            android:layout_width="50dp"
+            android:layout_height="34dp"
+            android:layout_margin="18dp"
+            android:background="@color/HighlightColor"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/comic_font"
+        android:text="Car Info"
+        android:textColor="@color/FontColor"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:id="@+id/rentedCarImage"
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/rentedCarType"
+        style="@style/DefaultText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Car Type"
+        android:textColor="@color/HighlightColor"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/rentedCarOccasion"
+        style="@style/DefaultText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Car Occasion"
+        android:textColor="@color/HighlightColor"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/rentedCarPrice"
+        style="@style/DefaultText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Car Price/Hour"
+        android:textColor="@color/HighlightColor"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/dateFromBtn"
+            android:layout_width="120dp"
+            android:layout_height="45dp"
+            android:text="Date From" />
+
+        <TextView
+            android:id="@+id/dateFromTxt"
+            android:layout_width="186dp"
+            android:layout_height="35dp"
+            android:background="@color/PrimaryColor"
+            android:fontFamily="@font/comic_font"
+            android:gravity="center"
+            android:textColor="@color/FontColor"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/dateToBtn"
+            android:layout_width="120dp"
+            android:layout_height="45dp"
+            android:text="Date To"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/dateToTxt"
+            android:layout_width="186dp"
+            android:layout_height="35dp"
+            android:background="@color/PrimaryColor"
+            android:fontFamily="@font/comic_font"
+            android:gravity="center"
+            android:textColor="@color/FontColor"
+            android:textSize="18sp"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="#000"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="40dp"
+            android:fontFamily="@font/comic_font"
+            android:text="Total Price"
+            android:textColor="@color/FontColor"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/totalCostTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@drawable/rounded_corner"
+            android:gravity="center"
+            android:text="0 LE."
+            android:fontFamily="@font/comic_font"
+            android:textColor="@color/FontColor"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/confirmRentBtn"
+        style="@style/DefaultText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner2"
+        android:gravity="center"
+        android:text="Confirm Rent"
+        android:visibility="visible" />
+
+</LinearLayout>

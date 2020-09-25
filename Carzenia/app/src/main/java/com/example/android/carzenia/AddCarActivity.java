@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.media.Image;
-import android.media.MediaDescrambler;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -29,7 +27,7 @@ public class AddCarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_car);
 
-        final CarDB helper = new CarDB(this);
+        final DBManager helper = new DBManager(this);
         carImage = (ImageView)findViewById(R.id.NewCarImage);
         typeInput = (EditText)findViewById(R.id.CarTypeInput);
         occasionInput = (EditText)findViewById(R.id.CarOccassionInput);

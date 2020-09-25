@@ -12,11 +12,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:fontFamily="@font/cooper_font"
-        android:textSize="30dp"
-        android:textColor="@color/FontColor"
         android:layout_marginTop="20dp"
-        android:text="ADD A NEW CAR"/>
+        android:fontFamily="@font/cooper_font"
+        android:text="ADD A NEW CAR"
+        android:textColor="@color/FontColor"
+        android:textSize="30dp" />
     <LinearLayout
         android:layout_width="310dp"
         android:layout_height="wrap_content"

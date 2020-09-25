@@ -1,12 +1,15 @@
 package com.example.android.carzenia;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -40,9 +43,10 @@ public class CarListAdapter extends BaseAdapter {
     private class ViewHolder{
         ImageView imageView;
         TextView idView, typeView, occasionView, priceView;
+        Button updateBtn, removeBtn;
     }
     @Override
-    public View getView(int position, View view, ViewGroup viewGroup) {
+    public View getView(final int position, View view, ViewGroup viewGroup) {
         View row = view;
         ViewHolder holder = new ViewHolder();
 
@@ -55,6 +59,8 @@ public class CarListAdapter extends BaseAdapter {
             holder.typeView = (TextView) row.findViewById(R.id.carTypeT);
             holder.occasionView = (TextView) row.findViewById(R.id.carOccasionT);
             holder.priceView = (TextView) row.findViewById(R.id.carPriceT);
+            holder.updateBtn = (Button) row.findViewById(R.id.updateBtnT);
+            holder.removeBtn = (Button) row.findViewById(R.id.removeBtnT);
 
             row.setTag(holder);
         }
@@ -68,7 +74,22 @@ public class CarListAdapter extends BaseAdapter {
         holder.typeView.setText(carModel.getType());
         holder.occasionView.setText(carModel.getOccasion());
         holder.priceView.setText(carModel.getPrice()+" LE. Per Hour");
-
+        holder.updateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, UpdateCarActivity.class);
+                intent.putExtra("CarID", position+1);
+                context.startActivity(intent);
+            }
+        });
+        holder.removeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, RemoveCarsActivity.class);
+                intent.putExtra("CarID", position+1);
+                context.startActivity(intent);
+            }
+        });
 
         return row;
     }

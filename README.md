@@ -13,3 +13,5 @@
 6- Rent Form Activity (Youssef)
 
 7- User Profile Activity (Mai)
+
+8- Alerts, Update Car, Remove Car, Add Admin, Fragments, Navigation Menue, Display Cars For Admins, Customer Database (Kareem)

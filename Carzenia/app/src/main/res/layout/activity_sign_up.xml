@@ -27,7 +27,6 @@
         android:transitionName="logo_text" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/fullname"
         android:layout_width="match_parent"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
@@ -37,12 +36,14 @@
         android:textColorHint="@color/HighlightColor">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fullname"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/comic_font"
+            android:textColor="@color/FontColor"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -51,11 +52,13 @@
         android:hint="Email"
         android:textColorHint="@color/HighlightColor">
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/comic_font"
+            android:textColor="@color/FontColor"/>
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/phoneNo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -64,13 +67,15 @@
         android:hint="Phone Number"
         android:textColorHint="@color/HighlightColor">
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/phoneNo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/comic_font"
+            android:textColor="@color/FontColor"/>
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/passNumber"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -78,14 +83,16 @@
         android:textColorHint="@color/HighlightColor"
         app:passwordToggleEnabled="true">
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            android:fontFamily="@font/comic_font"
+            android:textColor="@color/FontColor"/>
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/ConfirmPassNo"
         android:hint="Confirm Password"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
@@ -93,9 +100,12 @@
         android:textColorHint="@color/HighlightColor"
         app:passwordToggleEnabled="true">
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ConfirmPassNo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            android:fontFamily="@font/comic_font"
+            android:textColor="@color/FontColor"/>
     </com.google.android.material.textfield.TextInputLayout>
     <Button
         android:id="@+id/signupBtn"

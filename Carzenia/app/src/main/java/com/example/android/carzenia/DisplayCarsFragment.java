@@ -1,34 +1,43 @@
 package com.example.android.carzenia;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 
-public class DisplayCarsFragment extends AppCompatActivity
+public class DisplayCarsFragment extends Fragment
 {
-    private CarDB helper;
+    private DBManager helper;
     private GridView gridView;
     private ArrayList<CarModel> carsList;
     private CarListAdapter2 adapter;
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_cars);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.activity_display_cars, container, false);
 
-        helper = new CarDB(this);
+        helper = new DBManager(getContext());
         carsList = helper.getCarsData();
         if(carsList.isEmpty())
-            Toast.makeText(this, "No Cars To Show !", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "No Cars To Show !", Toast.LENGTH_SHORT).show();
         else {
-            gridView = (GridView) findViewById(R.id.displayGridView);
-            adapter = new CarListAdapter2(this, R.layout.car_for_users, carsList);
+            gridView = view.findViewById(R.id.displayGridView);
+            adapter = new CarListAdapter2(getContext(), R.layout.car_for_users, carsList);
             gridView.setAdapter(adapter);
         }
-        //adapter.notifyDataSetChanged();
+        return view;
     }
 }

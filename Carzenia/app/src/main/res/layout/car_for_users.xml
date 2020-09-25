@@ -8,8 +8,10 @@
     <LinearLayout
         android:layout_width="342dp"
         android:layout_height="476dp"
-        android:layout_margin="10dp"
-        android:background="@drawable/b1"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
@@ -66,13 +68,14 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/rentbtn"
+                android:id="@+id/rentBtn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginRight="2dp"
                 android:background="@drawable/rounded_corner2"
                 android:text="Rent"
-                android:textColor="@color/FontColor" />
+                android:textSize="20sp"
+                android:textColor="@color/FontColor"/>
         </LinearLayout>
 
     </LinearLayout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/b3"
+    android:orientation="vertical"
+    tools:context=".AddAdminActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@id/adminDataLayout"
+        android:fontFamily="@font/cooper_font"
+        android:text="ADD A NEW ADMIN"
+        android:textColor="@color/FontColor"
+        android:textSize="30dp" />
+
+    <LinearLayout
+        android:id="@+id/adminDataLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/rounded_corner2"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:hint="Name"
+            android:textColorHint="@color/FontColor">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/adminName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/comic_font"
+                android:textColor="@color/FontColor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Password"
+            android:textColorHint="@color/FontColor"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/adminPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/comic_font"
+                android:inputType="textPassword"
+                android:textColor="@color/FontColor" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <Button
+        style="@style/DefaultText"
+        android:id="@+id/addAdmin"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/adminDataLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="24dp"
+        android:background="@drawable/rounded_corner2"
+        android:text="Add Admin" />
+</RelativeLayout>

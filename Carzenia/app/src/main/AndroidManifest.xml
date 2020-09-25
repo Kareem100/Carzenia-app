@@ -12,17 +12,34 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".HomeActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".ContactFragment" />
-        <activity android:name=".AboutAppFragment" />
-        <activity android:name=".DisplayCarsActivity" />
-        <activity android:name=".AddCarActivity" />
+        <activity
+            android:name=".RentalActivity"
+            android:parentActivityName=".HomeActivity" />
+        <activity
+            android:name=".HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AddAdminActivity"
+            android:parentActivityName=".AdminActivity" />
+        <activity
+            android:name=".RemoveCarsActivity"
+            android:parentActivityName=".AdminActivity" />
+        <activity
+            android:name=".UpdateCarActivity"
+            android:parentActivityName=".AdminActivity" />
+        <activity
+            android:name=".DisplayCarsActivity"
+            android:parentActivityName=".AdminActivity" />
+        <activity
+            android:name=".AddCarActivity"
+            android:parentActivityName=".AdminActivity" />
         <activity android:name=".AdminActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

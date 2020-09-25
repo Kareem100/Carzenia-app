@@ -7,9 +7,13 @@
             android:icon="@drawable/ic_profile"
             android:title="Profile" />
         <item
-            android:id="@+id/TopRentedNav"
+            android:id="@+id/DisplayCarsNav"
             android:icon="@drawable/ic_top_car"
-            android:title="Top Rented" />
+            android:title="Cars" />
+        <item
+            android:id="@+id/RentCarNav"
+            android:icon="@drawable/ic_rent"
+            android:title="Rent" />
         <item
             android:id="@+id/FeedbackNav"
             android:icon="@drawable/ic_feedback"

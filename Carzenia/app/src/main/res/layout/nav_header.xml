@@ -10,11 +10,14 @@
     tools:context=".HomeActivity">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/UserProfilePic"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
         android:src="@mipmap/ic_launcher_round" />
 
     <TextView
+        android:id="@+id/Username"
         style="@style/DefaultText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,6 +28,7 @@
         android:textSize="20sp" />
 
     <TextView
+        android:id="@+id/UserMail"
         style="@style/DefaultText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
