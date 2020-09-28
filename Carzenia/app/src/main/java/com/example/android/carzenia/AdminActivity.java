@@ -8,8 +8,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextThemeWrapper;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 
 public class AdminActivity extends AppCompatActivity {
+    private DBManager db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +25,7 @@ public class AdminActivity extends AppCompatActivity {
         androidx.cardview.widget.CardView displayCard = (androidx.cardview.widget.CardView)findViewById(R.id.DisplayCarsBtn);
         androidx.cardview.widget.CardView adminCard = (androidx.cardview.widget.CardView)findViewById(R.id.AddAdminBtn);
         androidx.cardview.widget.CardView logoutCard = (androidx.cardview.widget.CardView)findViewById(R.id.LogoutBtn);
+        ImageView viewMessags = (ImageView)findViewById(R.id.ViewMsgs);
 
         addCard.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -47,7 +51,6 @@ public class AdminActivity extends AppCompatActivity {
                 startActivity(new Intent(AdminActivity.this, DisplayCarsActivity.class));
             }
         });
-
         adminCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,7 +63,14 @@ public class AdminActivity extends AppCompatActivity {
                 showAlertDialog();
             }
         });
-
+        viewMessags.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                db=new DBManager(AdminActivity.this);
+                db.getMessagesForAdmin();
+                startActivity(new Intent(AdminActivity.this,AdminAnswersActivity.class));
+            }
+        });
     }
 
     @Override

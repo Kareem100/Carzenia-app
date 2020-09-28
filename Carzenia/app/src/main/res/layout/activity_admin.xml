@@ -232,5 +232,13 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </GridLayout>
-
+    <ImageView
+        android:id="@+id/ViewMsgs"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_toRightOf="@id/adminTitleView"
+        android:layout_marginTop="44dp"
+        android:layout_marginLeft="8dp"
+        android:src="@drawable/ic_message"
+        android:background="@drawable/rounded_corner2"/>
 </RelativeLayout>

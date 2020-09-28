@@ -22,6 +22,10 @@ public class DBManager extends SQLiteOpenHelper {
     private SQLiteDatabase CarzeniaDatabase;
     private ByteArrayOutputStream stream;
     private byte[] ImageBytes;
+    private ArrayList<String> answer1;
+    private ArrayList<String> message1;
+    private ArrayList<String> username;
+    private ArrayList<String> msg ;
     private Context context;
 
     public DBManager(@Nullable Context context) {
@@ -35,6 +39,8 @@ public class DBManager extends SQLiteOpenHelper {
                         "Occasion TEXT not null, Price TEXT not null, Image BLOB not null)");
         database.execSQL("create table User(Name TEXT primary key, Mail TEXT not null," +
                 "Phone TEXT not null, Password TEXT not null, Type TEXT not null, Image BLOP)");
+        database.execSQL("create table Messages(msgID TEXT primary key, ID TEXT," +
+                "Message TEXT, Seen INTEGER , AdminAns TEXT)");
 
         database.execSQL("insert into User(Name, Mail, Phone, Password, Type)"+
                 "values('admin', 'kareimshreif@yahoo.com', '01143734174', 'admin', 'admin')");
@@ -46,6 +52,7 @@ public class DBManager extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion) {
         database.execSQL("drop table if exists Car");
         database.execSQL("drop table if exists User");
+        database.execSQL("drop table if exists Messages");
         onCreate(database);
     }
 
@@ -304,4 +311,84 @@ public class DBManager extends SQLiteOpenHelper {
         return password;
     }
     /********* END USER DATA *********/
+
+    /********* START USER/ADMIN MESSAGES**********/
+    public void InsertMessages(String message , String username) {
+        ContentValues row = new ContentValues();
+        row.put("ID" , username);
+        row.put("Message", message);
+        row.put("Seen",2);
+        row.put("AdminAns","No respond yet");
+        CarzeniaDatabase = getWritableDatabase();
+        CarzeniaDatabase.insert("Messages", null , row );
+        CarzeniaDatabase.close();
+    }
+
+    public void InsertAdminAnswer(String answer , String username , String message) {
+        CarzeniaDatabase= getReadableDatabase();
+        Cursor cursor = CarzeniaDatabase.rawQuery("SELECT ID  FROM Messages WHERE ID = ? AND Message = ? AND Seen = 2", new String[]{username , message});
+        Cursor cursor1 = CarzeniaDatabase.rawQuery("SELECT Message FROM Messages WHERE ID = ? AND Message = ? AND Seen = 2", new String[]{username , message});
+        if(cursor.getCount()>0&&cursor1.getCount()>0)
+        {
+            ContentValues value = new ContentValues();
+            value.put("AdminAns", answer);
+            value.put("Seen",1);
+            CarzeniaDatabase=getWritableDatabase();
+            CarzeniaDatabase.update("Messages", value , "ID='"+username+"' AND Message='"+message+"';" , null  );
+            CarzeniaDatabase.close();
+        }
+    }
+
+    public void getAnswersForUser(String username) {
+        CarzeniaDatabase=getReadableDatabase();
+        message1= new ArrayList<String>();
+        answer1=new ArrayList<String>();
+        Cursor cursor = CarzeniaDatabase.rawQuery("SELECT Message FROM Messages WHERE ID = ? ", new String[]{username});
+        Cursor cursor1 = CarzeniaDatabase.rawQuery("SELECT AdminAns FROM Messages WHERE ID = ?", new String[]{username});
+        if(cursor.getCount()>0&&cursor1.getCount()>0)
+        {
+            cursor.moveToFirst();
+            cursor1.moveToFirst();
+            while (cursor.moveToNext()&&cursor1.moveToNext()) {
+                answer1.add("RESPOND:\n" + cursor1.getString(0));
+                message1.add("MESSAGE:\n" + cursor.getString(0));
+            }
+        }
+        CarzeniaDatabase.close();
+    }
+
+    public void getMessagesForAdmin(){
+        CarzeniaDatabase=getReadableDatabase();
+        username= new ArrayList<String>();
+        msg=new ArrayList<String>();
+        Cursor cursor = CarzeniaDatabase.rawQuery("SELECT ID FROM Messages WHERE Seen = 2",null);
+        Cursor cursor1 = CarzeniaDatabase.rawQuery("SELECT Message FROM Messages WHERE Seen = 2",null);
+        if(cursor.getCount()>0&&cursor1.getCount()>0)
+        {
+            cursor.moveToFirst();
+            cursor1.moveToFirst();
+            while (cursor.moveToNext() &&cursor1.moveToNext()) {
+                username.add("Username: " + cursor.getString(0));
+                msg.add("Message:\n" + cursor1.getString(0));
+            }
+        }
+        CarzeniaDatabase.close();
+    }
+
+    public ArrayList<String> getAnswer1() {
+        return answer1;
+    }
+
+    public ArrayList<String> getMessage1() {
+        return message1;
+    }
+
+    public ArrayList<String> getUsername(){
+        return username;
+    }
+
+    public ArrayList<String> getMsg() {
+        return msg;
+    }
+    /********END USER/ADMIN MESSAGES********/
 }

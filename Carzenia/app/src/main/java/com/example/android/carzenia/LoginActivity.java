@@ -14,6 +14,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText name, password;
     private Button login, signUp;
     private DBManager DB;
+    protected static String user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +40,10 @@ public class LoginActivity extends AppCompatActivity {
                 else if (pass.equals(""))
                     Toast.makeText(LoginActivity.this, "Please Enter The Password !!", Toast.LENGTH_SHORT).show();
                 else if (DB.isSuccessLogin(username, pass)){
-                    Toast.makeText(LoginActivity.this, "Logged In Successfully !!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Logged In Successfully As "+ username +" !!", Toast.LENGTH_LONG).show();
                     if(DB.getUserType(username).equals("user")){
                         HomeActivity.username = username;
+                        user=username;
                         startActivity(new Intent(LoginActivity.this, HomeActivity.class)); // FOR USERS
                         finish();
                     }

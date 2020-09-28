@@ -13,6 +13,10 @@
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
         <activity
+            android:name=".AdminAnswersActivity"
+            android:parentActivityName=".AdminActivity"/>
+        <activity android:name=".UserMessagesActivity" />
+        <activity
             android:name=".RentalActivity"
             android:parentActivityName=".HomeActivity" />
         <activity

@@ -139,10 +139,11 @@ public class RentFormFragment extends Fragment implements AdapterView.OnItemSele
                         showselecteddate.setText(Cureentdate);
                         TextView price=(TextView) classView.findViewById(R.id.totalCostTxt);
                         int hourCost = 1;
-                        if(!priceTxt.getText().toString().isEmpty())
+                        if(!priceTxt.getText().toString().isEmpty() && !priceTxt.getText().toString().equals("Car Price/Hour")){
                             hourCost = Integer.parseInt(priceTxt.getText().toString());
-                        price.setText(String.valueOf(((dtDay-dfDay)+(dtMonth-dfMonth)*30+(dtYear-dfYear)*365)*24 * hourCost + " L.E"));
-                        rent.setVisibility(View.VISIBLE);
+                            price.setText(String.valueOf(((dtDay-dfDay)+(dtMonth-dfMonth)*30+(dtYear-dfYear)*365)*24 * hourCost + " L.E"));
+                            rent.setVisibility(View.VISIBLE);
+                        }
                     }
                 }
                 else

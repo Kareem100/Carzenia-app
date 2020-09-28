@@ -71,7 +71,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/mssgCont"
             android:layout_width="300dp"
-            android:layout_height="250dp"
+            android:layout_height="200dp"
             android:hint="Your Message..."
             android:textColor="@color/FontColor"
             android:textSize="20dp"
@@ -86,6 +86,14 @@
         android:background="@drawable/rounded_corner2"
         android:textColor="#000"
         android:text=" SEND..! "/>
+    <Button
+        android:id="@+id/respnses"
+        style="@style/DefaultText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner2"
+        android:text="View Responses"
+        android:textColor="#000" />
 
 
 </LinearLayout>

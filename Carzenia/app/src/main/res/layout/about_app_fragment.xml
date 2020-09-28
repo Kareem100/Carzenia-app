@@ -19,14 +19,14 @@
         style="@style/DefaultText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18dp"
+        android:textSize="20dp"
         android:text=" Carzenia is a company that rents cars automobiles for short periods of time for a fee. It is often organized with numerous local branches and primarily located near airports or busy city areas and often complemented by an app allowing online reservations."/>
 
     <TextView
         style="@style/DefaultText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18dp"
+        android:textSize="20dp"
         android:text="Carzenia primarily serves people who have a car that is temporarily out of reach or out of service, for example travellers who are out of town or owners of damaged or destroyed vehicles who are awaiting repair or insurance compensation."/>
 
     <Button

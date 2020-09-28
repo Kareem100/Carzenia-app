@@ -50,10 +50,10 @@ public class SignupActivity extends AppCompatActivity {
 
                 if (goodData(name, mail, phone, pass, repass)){
                     if(!DB.isAvailableUsername(name))
-                        Toast.makeText(SignupActivity.this, "A User With The Same Name Is Already Registered !!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignupActivity.this, "A User With The Same Name Is Already Registered !!", Toast.LENGTH_LONG).show();
                     else {
                         DB.addUserData(name, mail, phone, pass, "user");
-                        Toast.makeText(SignupActivity.this, "Registered Successfully !!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignupActivity.this, "Registered Successfully As "+ name + "!!", Toast.LENGTH_LONG).show();
                         startActivity(new Intent(SignupActivity.this, LoginActivity.class));
                         finish();
                     }
@@ -97,5 +97,6 @@ public class SignupActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         startActivity(new Intent(this, LoginActivity.class));
+        finish();
     }
 }

@@ -113,14 +113,11 @@ public class RentalActivity extends AppCompatActivity implements AdapterView.OnI
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 dtYear=year;dtMonth=month;dtDay=dayOfMonth;
-                if((dtYear>=dfYear && dtMonth >= dfMonth && dtDay>=dfDay ))
+                if((dtYear>=dfYear))
                 {
-                    if(dtDay==dfDay && dtMonth == dfMonth && dtYear == dfYear)
-                    {
+                    if( (dtDay==dfDay && dtMonth == dfMonth && dtYear == dfYear) || (dtMonth < dfMonth && dtYear == dfYear) || (dtDay < dfDay && dtMonth == dfMonth && dtYear == dfYear))
                         Toast.makeText(RentalActivity.this,"Not valid date",Toast.LENGTH_LONG).show();
-                    }
-                    else
-                    {
+                    else {
                         SimpleDateFormat s=new SimpleDateFormat("dd/MM/yyyy");
                         Calendar c = Calendar.getInstance();
                         c.set(Calendar.YEAR,year);
@@ -138,9 +135,7 @@ public class RentalActivity extends AppCompatActivity implements AdapterView.OnI
                     }
                 }
                 else
-                {
                     Toast.makeText(RentalActivity.this,"Not valid date",Toast.LENGTH_LONG).show();
-                }
             }
         };
 

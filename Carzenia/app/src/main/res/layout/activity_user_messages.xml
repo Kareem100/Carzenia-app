@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="207dp"
+    tools:context=".UserMessagesActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="405dp"
+        android:layout_height="205dp"
+        tools:layout_editor_absoluteX="3dp"
+        tools:ignore="MissingConstraints">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/b1">
+
+            <TextView
+                android:id="@+id/AdminAns"
+                android:layout_width="356dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="37dp"
+                android:text="AdminAns"
+                android:textAppearance="@android:style/Widget.DeviceDefault.EditText"
+                android:textColor="#F3EFEF"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/UserMsg" />
+
+            <TextView
+                android:id="@+id/UserMsg"
+                android:layout_width="361dp"
+                android:layout_height="59dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginBottom="18dp"
+                android:text="UserMsg"
+                android:textColor="#F8EFEF"
+                android:textColorLink="#FAF3F3"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/AdminAns"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
