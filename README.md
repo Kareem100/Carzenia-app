@@ -1,6 +1,7 @@
 # Carzenia-app
 
-1- Main Activity (Kareem)
+## 1- Main Activity (Kareem)
+![](Screenshots/0_splash_screen.jpg)
 
 2- Login & Signup Activities (Mai)
 
