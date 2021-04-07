@@ -3,18 +3,26 @@
 ## 1- Main Activity (Kareem)
 ![](Screenshots/0_splash_screen.jpg)
 
-2- Login & Signup Activities (Mai)
+## 2- Login & Signup Activities (Mai)
+![](Screenshots/1_login_activity.jpg)
 
-3- Admin, AddCar & Database Creation (Kareem)
+## 3- Admin, AddCar & Database Creation (Kareem)
+![](Screenshots/2_admin_activity.jpg)
+![](Screenshots/3_add_car.jpg)
 
-4- About, Contact & Display Cars For Admins Activities (Kareem)
+## 4- About, Contact, Remove & Display Cars For Admins Activities (Kareem)
+![](Screenshots/4_remove_car.jpg)
 
-5- Display Cars For User Activity (Manar)
+## 5- Display Cars For User Activity (Manar)
+![](Screenshots/6_cars_exhibition.jpg)
 
-6- Rent Form Activity (Youssef)
+## 6- Rent Form Activity (Youssef)
 
-7- User Profile Activity (Mai)
 
-8- Alerts, Update Car, Remove Car, Add Admin, Fragments, Navigation Menue, Display Cars For Admins, Customer Database (Kareem)
+## 7- User Profile Activity (Mai)
+![](Screenshots/7_user_profile.jpg)
 
-9- User Feedbacks, Admin Responses and Messages Database (Manar)
+## 8- Alerts, Update Car, Add Admin, Fragments, Navigation Menue, Display Cars For Admins, Customer Database (Kareem)
+![](Screenshots/5_add_admin.jpg)
+
+## 9- User Feedbacks, Admin Responses and Messages Database (Manar)
