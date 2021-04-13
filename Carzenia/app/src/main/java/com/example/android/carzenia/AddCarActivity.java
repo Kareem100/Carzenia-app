@@ -28,7 +28,7 @@ public class AddCarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_car);
 
         final DBManager helper = new DBManager(this);
-        carImage = (ImageView)findViewById(R.id.NewCarImage);
+        carImage = (ImageView)findViewById(R.id.image_view_new_car);
         typeInput = (EditText)findViewById(R.id.CarTypeInput);
         occasionInput = (EditText)findViewById(R.id.CarOccassionInput);
         priceInput = (EditText)findViewById(R.id.CarPriceInput);
@@ -40,7 +40,7 @@ public class AddCarActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.AddNewCarBtn).setOnClickListener(new View.OnClickListener(){
+        findViewById(R.id.button_add_new_car).setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {

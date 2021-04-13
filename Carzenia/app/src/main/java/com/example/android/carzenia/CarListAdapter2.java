@@ -53,11 +53,11 @@ public class CarListAdapter2 extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             row = inflater.inflate(layout, null);
 
-            holder.imageView = (ImageView) row.findViewById(R.id.carimg);
-            holder.idView = (TextView) row.findViewById(R.id.ID);
-            holder.typeView = (TextView) row.findViewById(R.id.type);
-            holder.occasionView = (TextView) row.findViewById(R.id.occasion);
-            holder.priceView = (TextView) row.findViewById(R.id.price);
+            holder.imageView = (ImageView) row.findViewById(R.id.image_view_users_car_image_item);
+            holder.idView = (TextView) row.findViewById(R.id.text_view_users_car_id_item);
+            holder.typeView = (TextView) row.findViewById(R.id.text_view_users_car_type_item);
+            holder.occasionView = (TextView) row.findViewById(R.id.text_view_users_car_occasion_item);
+            holder.priceView = (TextView) row.findViewById(R.id.text_view_users_car_price_item);
             holder.rentButton = (Button) row.findViewById(R.id.rentBtn);
 
             row.setTag(holder);

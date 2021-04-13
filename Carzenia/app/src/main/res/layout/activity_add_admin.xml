@@ -11,33 +11,37 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@id/linear_layout_data_container"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="20dp"
-        android:layout_above="@id/adminDataLayout"
+        android:layout_marginBottom="@dimen/small_spacing"
         android:fontFamily="@font/cooper_font"
-        android:text="ADD A NEW ADMIN"
+        android:text="@string/add_new_admin"
+        android:textAllCaps="true"
         android:textColor="@color/FontColor"
-        android:textSize="30dp" />
+        android:textSize="@dimen/text_size_medium" />
 
     <LinearLayout
-        android:id="@+id/adminDataLayout"
-        android:layout_width="wrap_content"
+        android:id="@+id/linear_layout_data_container"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:layout_marginLeft="@dimen/large_spacing"
+        android:layout_marginRight="@dimen/large_spacing"
         android:background="@drawable/rounded_corner2"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="@dimen/medium_spacing">
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_marginBottom="@dimen/medium_spacing"
             android:hint="Name"
             android:textColorHint="@color/FontColor">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/adminName"
+                android:id="@+id/text_input_edit_text_admin_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/comic_font"
@@ -46,17 +50,14 @@
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="16dp"
             android:hint="Password"
             android:textColorHint="@color/FontColor"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/adminPassword"
+                android:id="@+id/text_input_edit_text_admin_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/comic_font"
@@ -66,13 +67,13 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/button_add_admin"
         style="@style/DefaultText"
-        android:id="@+id/addAdmin"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/adminDataLayout"
+        android:layout_below="@id/linear_layout_data_container"
         android:layout_centerHorizontal="true"
-        android:layout_margin="24dp"
+        android:layout_margin="@dimen/large_spacing"
         android:background="@drawable/rounded_corner2"
         android:text="Add Admin" />
 </RelativeLayout>

@@ -2,7 +2,6 @@ package com.example.android.carzenia;
 
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -42,23 +41,26 @@ public class RentFormFragment extends Fragment implements AdapterView.OnItemSele
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         final View classView = inflater.inflate(R.layout.rent_fragment, container, false);
 
         /**************************/ // INSTANTIATION
         DB = new DBManager(getContext());
-        spinner = classView.findViewById(R.id.spinner3);
-        image = classView.findViewById(R.id.rentedCarImage);
-        typeTxt = classView.findViewById(R.id.rentedCarType);
-        occasionTxt = classView.findViewById(R.id.rentedCarOccasion);
-        priceTxt = classView.findViewById(R.id.rentedCarPrice);
+        spinner = classView.findViewById(R.id.spinner_rent_form);
+        image = classView.findViewById(R.id.image_view_rented_car);
+        typeTxt = classView.findViewById(R.id.text_view_rented_car_type);
+        occasionTxt = classView.findViewById(R.id.text_view_rented_car_occasion);
+        priceTxt = classView.findViewById(R.id.text_view_rented_car_price);
         arrayList = DB.getAllCarsID();
-        arrayAdapter = new ArrayAdapter<Integer>(getContext(), android.R.layout.simple_list_item_1, arrayList);
+        arrayAdapter = new ArrayAdapter<Integer>(getContext(),
+                android.R.layout.simple_list_item_1, arrayList);
         spinner.setAdapter(arrayAdapter);
         spinner.setOnItemSelectedListener(this);
         /**************************/ // DEFAULT VALUES
         if(arrayList.isEmpty())
-            Toast.makeText(getContext(), "Sorry Still No Cars To Be Rented !!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), "Sorry Still No Cars To Be Rented !!",
+                    Toast.LENGTH_LONG).show();
         else {
             image.setImageBitmap(DB.getCarImage(arrayList.get(0)));
             typeTxt.setText(DB.getCarType(arrayList.get(0)));
@@ -71,14 +73,16 @@ public class RentFormFragment extends Fragment implements AdapterView.OnItemSele
         final int CurrentYear =c.get(Calendar.YEAR);
         final int CurrentMonth =c.get(Calendar.MONTH);
         final int CurrentDay =c.get(Calendar.DAY_OF_MONTH);
-        rent =(Button) classView.findViewById(R.id.confirmRentBtn);
-        DateTo =(Button) classView.findViewById(R.id.dateToBtn);
-        Button DateFrom = (Button) classView.findViewById(R.id.dateFromBtn);
+        rent =(Button) classView.findViewById(R.id.button_confirm_rent);
+        DateTo =(Button) classView.findViewById(R.id.button_date_to);
+        Button DateFrom = (Button) classView.findViewById(R.id.button_date_from);
 
         DateFrom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePickerDialog datepicker = new DatePickerDialog(getContext(),android.R.style.Theme_Holo_Light_Dialog_MinWidth,d2,CurrentYear,CurrentMonth,CurrentDay);
+                DatePickerDialog datepicker = new DatePickerDialog(getContext(),
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        d2,CurrentYear,CurrentMonth,CurrentDay);
                 datepicker.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 datepicker.show();
             }
@@ -96,10 +100,10 @@ public class RentFormFragment extends Fragment implements AdapterView.OnItemSele
                     c.set(Calendar.MONTH, month);
                     c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
                     String Cureentdate = s.format(c.getTime());
-                    TextView showselecteddate = (TextView) classView.findViewById(R.id.dateFromTxt);
+                    TextView showselecteddate = (TextView) classView.findViewById(R.id.text_view_date_from);
                     showselecteddate.setText(Cureentdate);
                     DateTo.setVisibility(View.VISIBLE);
-                    ((TextView) classView.findViewById(R.id.dateToTxt)).setVisibility(View.VISIBLE);
+                    ((TextView) classView.findViewById(R.id.text_view_date_to)).setVisibility(View.VISIBLE);
                 }
                 else
                 {
@@ -110,7 +114,8 @@ public class RentFormFragment extends Fragment implements AdapterView.OnItemSele
         DateTo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePickerDialog datepicker = new DatePickerDialog(getContext(),android.R.style.Theme_Holo_Light_Dialog_MinWidth,d1,CurrentYear,CurrentMonth,CurrentDay);
+                DatePickerDialog datepicker = new DatePickerDialog(getContext(),
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,d1,CurrentYear,CurrentMonth,CurrentDay);
                 datepicker.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 datepicker.show();
             }
@@ -135,13 +140,15 @@ public class RentFormFragment extends Fragment implements AdapterView.OnItemSele
                         c.set(Calendar.MONTH,month);
                         c.set(Calendar.DAY_OF_MONTH,dayOfMonth);
                         String Cureentdate = s.format(c.getTime());
-                        TextView showselecteddate = (TextView) classView.findViewById(R.id.dateToTxt);
+                        TextView showselecteddate = (TextView) classView.findViewById(R.id.text_view_date_to);
                         showselecteddate.setText(Cureentdate);
-                        TextView price=(TextView) classView.findViewById(R.id.totalCostTxt);
+                        TextView price=(TextView) classView.findViewById(R.id.text_view_total_rent_cost);
                         int hourCost = 1;
-                        if(!priceTxt.getText().toString().isEmpty() && !priceTxt.getText().toString().equals("Car Price/Hour")){
+                        if(!priceTxt.getText().toString().isEmpty() &&
+                                !priceTxt.getText().toString().equals("Car Price/Hour")){
                             hourCost = Integer.parseInt(priceTxt.getText().toString());
-                            price.setText(String.valueOf(((dtDay-dfDay)+(dtMonth-dfMonth)*30+(dtYear-dfYear)*365)*24 * hourCost + " L.E"));
+                            price.setText(String.valueOf(((dtDay-dfDay)+(dtMonth-dfMonth)*30
+                                    + (dtYear-dfYear)*365)*24 * hourCost + " L.E"));
                             rent.setVisibility(View.VISIBLE);
                         }
                     }
@@ -156,10 +163,11 @@ public class RentFormFragment extends Fragment implements AdapterView.OnItemSele
         rent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String T1 = ((TextView)classView.findViewById(R.id.dateFromTxt)).getText().toString();
-                String T2 = ((TextView)classView.findViewById(R.id.dateToTxt)).getText().toString();
+                String T1 = ((TextView)classView.findViewById(R.id.text_view_date_from)).getText().toString();
+                String T2 = ((TextView)classView.findViewById(R.id.text_view_date_to)).getText().toString();
                 if(T1.isEmpty() || T2.isEmpty())
-                    Toast.makeText(getContext(), "Please Specify The Rental Duration !!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "Please Specify The Rental Duration !!",
+                            Toast.LENGTH_LONG).show();
                 else
                     showAlertDialog();
             }
@@ -169,7 +177,8 @@ public class RentFormFragment extends Fragment implements AdapterView.OnItemSele
     }
 
     private void showAlertDialog(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(new ContextThemeWrapper(getContext(), R.style.AlertDialogCustom));
+        AlertDialog.Builder alert = new AlertDialog.Builder(new ContextThemeWrapper(getContext(),
+                R.style.AlertDialogCustom));
         alert.setTitle("RENTING");
         alert.setMessage("Do You Want To Confirm Your Rental ?");
         alert.setIcon(R.drawable.ic_top_car);

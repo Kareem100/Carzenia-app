@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="splash_cover_height">120dp</dimen>
+    <dimen name="splash_cover_spacing">40dp</dimen>
+    <dimen name="nav_header_height">200dp</dimen>
+    <dimen name="profile_image_dimensions">100dp</dimen>
+    <dimen name="car_image_dimensions_small">140dp</dimen>
+    <dimen name="car_image_dimensions_medium">240dp</dimen>
+    <dimen name="car_image_dimensions_large">300dp</dimen>
+    <dimen name="message_icon_dimensions">50dp</dimen>
+    <dimen name="icons_dimensions">30dp</dimen>
+    <dimen name="icons_spacing">28dp</dimen>
+    <dimen name="spinner_width">50dp</dimen>
+    <dimen name="spinner_height">30dp</dimen>
+    <dimen name="admin_card_view_radius">10dp</dimen>
+    <dimen name="message_answer_height">200dp</dimen>
+    <dimen name="sign_up_fields_height">100dp</dimen>
+    <dimen name="contact_message_body_height">210dp</dimen>
+    <dimen name="date_field_height">40dp</dimen>
+
+    <dimen name="small_spacing">8dp</dimen>
+    <dimen name="medium_spacing">18dp</dimen>
+    <dimen name="large_spacing">36dp</dimen>
+    <dimen name="text_size_xx_small">12sp</dimen>
+    <dimen name="text_size_x_small">16sp</dimen>
+    <dimen name="text_size_small">20sp</dimen>
+    <dimen name="text_size_medium">30sp</dimen>
+    <dimen name="text_size_large">40sp</dimen>
+
+</resources>

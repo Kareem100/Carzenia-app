@@ -21,9 +21,9 @@ public class AddAdminActivity extends AppCompatActivity {
 
         //INSTANTIATION
         DB = new DBManager(this);
-        nameTxt = findViewById(R.id.adminName);
-        passTxt = findViewById(R.id.adminPassword);
-        button = findViewById(R.id.addAdmin);
+        nameTxt = findViewById(R.id.text_input_edit_text_admin_name);
+        passTxt = findViewById(R.id.text_input_edit_text_admin_password);
+        button = findViewById(R.id.button_add_admin);
 
         //CLICK LISTENER
         button.setOnClickListener(new View.OnClickListener(){

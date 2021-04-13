@@ -7,24 +7,23 @@
     tools:context=".DisplayCarsActivity">
 
     <TextView
-        android:id="@+id/exhibitionTitle"
+        android:id="@+id/text_view_exhibition_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginTop="@dimen/small_spacing"
+        android:layout_marginBottom="@dimen/large_spacing"
         android:fontFamily="@font/cooper_font"
-        android:text="CAR EXHIBITION"
+        android:textAllCaps="true"
+        android:text="@string/cars_exhibition"
         android:textColor="@color/FontColor"
-        android:textSize="30dp" />
+        android:textSize="@dimen/text_size_medium" />
 
-    <GridView
-        android:id="@+id/displayGridView"
-        android:layout_width="wrap_content"
+    <ListView
+        android:id="@+id/list_view_users_display"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/exhibitionTitle"
-        android:columnWidth="200dp"
-        android:numColumns="auto_fit"
-        android:layout_marginLeft="20dp"/>
+        android:layout_below="@id/text_view_exhibition_title"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

@@ -4,4 +4,5 @@
     <color name="PrimaryColor">#424242</color>
     <color name="HighlightColor">#FB8C00</color>
     <color name="FontColor">#FFF3E0</color>
+    <color name="ExtraFontColor">#B00020</color>
 </resources>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,11 +12,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/medium_spacing"
+        android:layout_marginBottom="@dimen/medium_spacing"
         android:fontFamily="@font/cooper_font"
-        android:text="REMOVE CAR/s"
+        android:text="@string/remove_car_or_cars"
+        android:textAllCaps="true"
         android:textColor="@color/FontColor"
-        android:textSize="30dp" />
+        android:textSize="@dimen/text_size_medium" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -28,15 +29,15 @@
             style="@style/DefaultText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:text="Car ID"
+            android:layout_margin="@dimen/medium_spacing"
+            android:text="@string/car_id"
             android:textColor="@color/HighlightColor" />
 
         <Spinner
-            android:id="@+id/spinner2"
-            android:layout_width="50dp"
-            android:layout_height="34dp"
-            android:layout_margin="24dp"
+            android:id="@+id/spinner_removed_cars"
+            android:layout_width="@dimen/spinner_width"
+            android:layout_height="@dimen/spinner_height"
+            android:layout_margin="@dimen/medium_spacing"
             android:background="@color/HighlightColor"
             android:textAlignment="center" />
     </LinearLayout>
@@ -44,62 +45,81 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="@dimen/medium_spacing"
         android:fontFamily="@font/comic_font"
         android:text="Car Info"
         android:textColor="@color/FontColor"
         android:textSize="24sp" />
 
     <ImageView
-        android:id="@+id/removedCarImage"
-        android:layout_width="160dp"
-        android:layout_height="120dp"
-        android:layout_marginBottom="16dp"
+        android:id="@+id/image_view_removed_car"
+        android:layout_width="@dimen/car_image_dimensions_small"
+        android:layout_height="@dimen/car_image_dimensions_small"
+        android:layout_marginBottom="@dimen/medium_spacing"
         android:scaleType="fitXY"
         android:src="@mipmap/ic_launcher" />
 
     <TextView
-        android:id="@+id/removedCarType"
-        style="@style/DefaultText"
-        android:layout_width="300dp"
+        android:id="@+id/text_view_removed_car_type"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Car Type"
+        android:layout_marginLeft="@dimen/large_spacing"
+        android:layout_marginRight="@dimen/large_spacing"
+        android:fontFamily="@font/comic_font"
+        android:text="@string/car_type"
+        android:textAlignment="center"
         android:textColor="@color/HighlightColor"
-        android:textSize="20sp" />
+        android:textSize="@dimen/text_size_small" />
 
     <TextView
-        android:id="@+id/removedCarOccasion"
-        style="@style/DefaultText"
-        android:layout_width="300dp"
+        android:id="@+id/text_view_removed_car_occasion"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Car Occasion"
+        android:layout_marginLeft="@dimen/large_spacing"
+        android:layout_marginTop="@dimen/small_spacing"
+        android:layout_marginRight="@dimen/large_spacing"
+        android:fontFamily="@font/comic_font"
+        android:text="@string/car_occasion"
+        android:textAlignment="center"
         android:textColor="@color/HighlightColor"
-        android:textSize="20sp" />
+        android:textSize="@dimen/text_size_small" />
 
     <TextView
-        android:id="@+id/removedCarPrice"
-        style="@style/DefaultText"
-        android:layout_width="300dp"
+        android:id="@+id/text_view_removed_car_price"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Car Price/Hour"
+        android:layout_marginLeft="@dimen/large_spacing"
+        android:layout_marginTop="@dimen/small_spacing"
+        android:layout_marginRight="@dimen/large_spacing"
+        android:fontFamily="@font/comic_font"
+        android:text="@string/car_price_per_hour"
+        android:textAlignment="center"
         android:textColor="@color/HighlightColor"
-        android:textSize="20sp" />
+        android:textSize="@dimen/text_size_small" />
 
     <Button
-        android:id="@+id/removeSelectedCarBtn"
-        style="@style/DefaultText"
-        android:layout_width="300dp"
+        android:id="@+id/button_remove_selected_car"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/large_spacing"
+        android:layout_marginTop="@dimen/large_spacing"
+        android:layout_marginRight="@dimen/large_spacing"
         android:background="@drawable/rounded_corner2"
-        android:textColor="#000"
-        android:text="Remove Selected" />
+        android:fontFamily="@font/comic_font"
+        android:text="@string/remove_selected"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_size_small" />
+
     <Button
-        android:id="@+id/removeAllCarsBtn"
-        style="@style/DefaultText"
-        android:layout_width="300dp"
+        android:id="@+id/button_remove_all_cars"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="0dp"
+        android:layout_marginLeft="@dimen/large_spacing"
+        android:layout_marginTop="@dimen/small_spacing"
+        android:layout_marginRight="@dimen/large_spacing"
         android:background="@android:color/holo_red_dark"
-        android:text="Remove All Cars" />
+        android:fontFamily="@font/comic_font"
+        android:text="@string/remove_all_cars"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_size_small" />
 </LinearLayout>

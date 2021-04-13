@@ -3,97 +3,102 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/rounded_corner"
     android:gravity="center_horizontal"
+    android:orientation="vertical"
     tools:context=".ContactUsFragment">
 
     <TextView
         style="@style/DefaultText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="40dp"
+        android:layout_margin="@dimen/large_spacing"
         android:background="@drawable/rounded_corner"
+        android:text="@string/contact_us_2"
+        android:textAllCaps="true"
         android:textColor="@color/FontColor"
-        android:textSize="30dp"
-        android:text="CONTACT US"/>
+        android:textSize="@dimen/text_size_medium" />
 
-        <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-        <RadioButton
-            android:id="@+id/issueRadioBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/HighlightColor"
-            android:fontFamily="@font/comic_font"
-            android:textSize="20dp"
-            android:text="Issue"/>
-        <RadioButton
-            android:id="@+id/otherRadioBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/HighlightColor"
-            android:fontFamily="@font/comic_font"
-            android:textSize="20dp"
-            android:layout_marginLeft="20dp"
-            android:text="Other"/>
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        </RadioGroup>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/comic_font"
+            android:text="@string/issue"
+            android:textColor="@color/HighlightColor"
+            android:textSize="@dimen/text_size_small" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/medium_spacing"
+            android:fontFamily="@font/comic_font"
+            android:text="@string/other"
+            android:textColor="@color/HighlightColor"
+            android:textSize="@dimen/text_size_small" />
+    </RadioGroup>
 
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/DefaultText"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/large_spacing"
+        android:layout_marginTop="@dimen/medium_spacing"
+        android:layout_marginRight="@dimen/large_spacing"
         android:textColorHint="@color/HighlightColor">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/mssgSubj"
-            android:layout_width="300dp"
+            android:id="@+id/text_input_edit_text_message_subject"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Message Subject..."
-            android:textColor="@color/FontColor"
-            android:textSize="20dp"
+            android:fontFamily="@font/comic_font"
+            android:hint="@string/message_subject"
             android:maxLength="20"
+            android:textColor="@color/FontColor"
+            android:textSize="@dimen/text_size_small"
             android:textAlignment="center"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/DefaultText"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/contact_message_body_height"
+        android:layout_marginLeft="@dimen/large_spacing"
+        android:layout_marginTop="@dimen/medium_spacing"
+        android:layout_marginRight="@dimen/large_spacing"
         android:textColorHint="@color/HighlightColor">
+
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/mssgCont"
-            android:layout_width="300dp"
-            android:layout_height="200dp"
-            android:hint="Your Message..."
+            android:id="@+id/text_input_edit_text_message_body"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/comicz"
+            android:hint="@string/message_content"
             android:textColor="@color/FontColor"
-            android:textSize="20dp"
+            android:textSize="@dimen/text_size_small"
             android:textAlignment="center"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
+        android:id="@+id/button_send_message"
         style="@style/DefaultText"
-        android:id="@+id/sendMessageBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_corner2"
-        android:textColor="#000"
-        android:text=" SEND..! "/>
+        android:paddingLeft="@dimen/medium_spacing"
+        android:paddingRight="@dimen/medium_spacing"
+        android:text="@string/send"
+        android:textColor="@android:color/black" />
+
     <Button
-        android:id="@+id/respnses"
+        android:id="@+id/button_view_responses"
         style="@style/DefaultText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_corner2"
-        android:text="View Responses"
-        android:textColor="#000" />
-
+        android:text="@string/view_responses"
+        android:textColor="@android:color/black" />
 
 </LinearLayout>

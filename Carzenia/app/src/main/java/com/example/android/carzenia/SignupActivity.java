@@ -20,13 +20,13 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        username = findViewById(R.id.fullname);
-        usermail = findViewById(R.id.email);
-        userphone = findViewById(R.id.phoneNo);
-        userpassword = findViewById(R.id.passNumber);
-        reUserPassword = findViewById(R.id.ConfirmPassNo);
-        signUp = findViewById(R.id.signupBtn);
-        login = findViewById(R.id.loginTransferBtn);
+        username = findViewById(R.id.text_input_edit_text_signup_fullname);
+        usermail = findViewById(R.id.text_input_edit_text_signup_email);
+        userphone = findViewById(R.id.text_input_edit_text_signup_phone);
+        userpassword = findViewById(R.id.text_input_edit_text_signup_pass);
+        reUserPassword = findViewById(R.id.text_input_edit_text_signup_confirm_pass);
+        signUp = findViewById(R.id.button_signup);
+        login = findViewById(R.id.button_login_from_signup);
 
         DB = new DBManager(this);
 
@@ -50,10 +50,13 @@ public class SignupActivity extends AppCompatActivity {
 
                 if (goodData(name, mail, phone, pass, repass)){
                     if(!DB.isAvailableUsername(name))
-                        Toast.makeText(SignupActivity.this, "A User With The Same Name Is Already Registered !!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(SignupActivity.this,
+                                "A User With The Same Name Is Already Registered !!",
+                                Toast.LENGTH_LONG).show();
                     else {
                         DB.addUserData(name, mail, phone, pass, "user");
-                        Toast.makeText(SignupActivity.this, "Registered Successfully As "+ name + "!!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(SignupActivity.this, "Registered Successfully As "
+                                + name + "!!", Toast.LENGTH_LONG).show();
                         startActivity(new Intent(SignupActivity.this, LoginActivity.class));
                         finish();
                     }
@@ -69,25 +72,30 @@ public class SignupActivity extends AppCompatActivity {
             return false;
         }
         else if (name.length() < 3){
-            Toast.makeText(this, "Name Must Be At Least Of 3 Characters !!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Name Must Be At Least Of 3 Characters !!",
+                    Toast.LENGTH_SHORT).show();
             return false;
         }
         else if (pass.length() < 3){
-            Toast.makeText(this, "Password Must Be At Least Of 3 Characters !!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Password Must Be At Least Of 3 Characters !!",
+                    Toast.LENGTH_SHORT).show();
             return false;
         }
         else if (!pass.equals(rePass)){
-            Toast.makeText(this, "The Passwords Don't Match.. !!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "The Passwords Don't Match.. !!",
+                    Toast.LENGTH_SHORT).show();
             return false;
         }
         else if (phone.length()!=11){
-            Toast.makeText(this, "Phone Number Must Consist Of 11 Digits !!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Phone Number Must Consist Of 11 Digits !!",
+                    Toast.LENGTH_SHORT).show();
             return false;
         }
         else
             for (int i = 0; i < phone.length(); ++i)
                 if(phone.charAt(i) > '9' || phone.charAt(i) < '0'){
-                    Toast.makeText(this, "Phone Number Must Consist Of Only Numbers !!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Phone Number Must Consist Of Only Numbers !!",
+                            Toast.LENGTH_SHORT).show();
                     return false;
                 }
 

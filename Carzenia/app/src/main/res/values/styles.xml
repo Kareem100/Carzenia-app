@@ -12,8 +12,8 @@
         <item name="android:fontFamily">@font/comic_font</item>
         <item name="android:textColor">@color/FontColor</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:textSize">24sp</item>
-        <item name="android:layout_margin">10dp</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:layout_margin">@dimen/small_spacing</item>
     </style>
 
     <style name="AlertDialogCustom" parent="@android:style/Theme.Dialog">

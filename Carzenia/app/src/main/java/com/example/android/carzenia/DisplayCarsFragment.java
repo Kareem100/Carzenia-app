@@ -4,23 +4,17 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.GridView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.ListView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import java.util.ArrayList;
 
 public class DisplayCarsFragment extends Fragment
 {
     private DBManager helper;
-    private GridView gridView;
+    private ListView listView;
     private ArrayList<CarModel> carsList;
     private CarListAdapter2 adapter;
 
@@ -34,9 +28,9 @@ public class DisplayCarsFragment extends Fragment
         if(carsList.isEmpty())
             Toast.makeText(getContext(), "No Cars To Show !", Toast.LENGTH_SHORT).show();
         else {
-            gridView = view.findViewById(R.id.displayGridView);
+            listView = view.findViewById(R.id.list_view_users_display);
             adapter = new CarListAdapter2(getContext(), R.layout.car_for_users, carsList);
-            gridView.setAdapter(adapter);
+            listView.setAdapter(adapter);
         }
         return view;
     }

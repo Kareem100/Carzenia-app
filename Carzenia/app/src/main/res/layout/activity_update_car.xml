@@ -13,11 +13,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/medium_spacing"
         android:fontFamily="@font/cooper_font"
-        android:text="UPDATE A CAR"
+        android:text="@string/update_a_car"
+        android:textAllCaps="true"
         android:textColor="@color/FontColor"
-        android:textSize="30dp" />
+        android:textSize="@dimen/text_size_medium" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -28,15 +29,15 @@
             style="@style/DefaultText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:text="Car ID"
+            android:layout_margin="@dimen/medium_spacing"
+            android:text="@string/car_id"
             android:textColor="@color/HighlightColor" />
 
         <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="50dp"
-            android:layout_height="34dp"
-            android:layout_margin="24dp"
+            android:id="@+id/spinner_update_car"
+            android:layout_width="@dimen/spinner_width"
+            android:layout_height="@dimen/spinner_height"
+            android:layout_margin="@dimen/medium_spacing"
             android:background="@color/HighlightColor"
             android:textAlignment="center" />
     </LinearLayout>
@@ -44,31 +45,33 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="@dimen/medium_spacing"
+        android:layout_marginBottom="@dimen/medium_spacing"
         android:fontFamily="@font/comic_font"
-        android:text="Car Info"
+        android:text="@string/car_info"
         android:textColor="@color/FontColor"
-        android:textSize="24sp" />
+        android:textSize="@dimen/text_size_small" />
 
     <ImageView
-        android:id="@+id/updatedCarImage"
-        android:layout_width="160dp"
-        android:layout_height="120dp"
-        android:layout_marginBottom="16dp"
+        android:id="@+id/image_view_updated_car"
+        android:layout_width="@dimen/car_image_dimensions_small"
+        android:layout_height="@dimen/car_image_dimensions_small"
+        android:layout_marginBottom="@dimen/medium_spacing"
         android:scaleType="fitXY"
         android:src="@mipmap/ic_launcher" />
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Car Type"
+        android:layout_marginLeft="@dimen/large_spacing"
+        android:layout_marginRight="@dimen/large_spacing"
+        android:hint="@string/car_type"
         android:textColorHint="@color/HighlightColor"
         app:boxStrokeColor="@color/HighlightColor">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/updatedTypeInput"
+            android:id="@+id/text_input_edit_text_car_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/comic_font"
@@ -77,14 +80,16 @@
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Car Occasion"
+        android:layout_marginLeft="@dimen/large_spacing"
+        android:layout_marginRight="@dimen/large_spacing"
+        android:hint="@string/car_occasion"
         android:textColorHint="@color/HighlightColor"
         app:boxStrokeColor="@color/HighlightColor">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/updatedOccasionInput"
+            android:id="@+id/text_input_edit_text_car_occasion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/comic_font"
@@ -93,14 +98,16 @@
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/large_spacing"
+        android:layout_marginRight="@dimen/large_spacing"
         android:hint="Car Price/Hour"
         android:textColorHint="@color/HighlightColor"
         app:boxStrokeColor="@color/HighlightColor">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/updatedPriceInput"
+            android:id="@+id/text_input_edit_text_car_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/comic_font"
@@ -108,10 +115,15 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        style="@style/DefaultText"
         android:id="@+id/saveUpdatedCarBtn"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/large_spacing"
+        android:layout_marginTop="@dimen/medium_spacing"
+        android:layout_marginRight="@dimen/large_spacing"
         android:background="@drawable/rounded_corner2"
-        android:text="Save Changes" />
+        android:fontFamily="@font/comic_font"
+        android:text="Save Changes"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/medium_spacing" />
 </LinearLayout>

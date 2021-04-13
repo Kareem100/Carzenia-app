@@ -8,20 +8,16 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -45,9 +41,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         // FOR USER DATA
         DB = new DBManager(this);
         View header = navigationView.getHeaderView(0);
-        ((TextView)header.findViewById(R.id.Username)).setText(username);
-        ((TextView)header.findViewById(R.id.UserMail)).setText(DB.getUserMail(username));
-        ImageView image = header.findViewById(R.id.UserProfilePic);
+        ((TextView)header.findViewById(R.id.text_view_nav_username)).setText(username);
+        ((TextView)header.findViewById(R.id.text_view_nav_user_mail)).setText(DB.getUserMail(username));
+        ImageView image = header.findViewById(R.id.image_view_nav_user_image);
         Bitmap bm = DB.getUserImage(username);
         if(bm!=null)
             image.setImageBitmap(bm);

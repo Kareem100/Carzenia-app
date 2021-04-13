@@ -1,5 +1,69 @@
 <resources>
     <string name="app_name">Carzenia</string>
+    <string name="app_description">Book unforgettable cars from trusted hosts around the world.</string>
+    <string name="about_the_app_1"><u>Carzenia</u> is a company that rents cars automobiles
+        for short periods of time for a fee. It is often organized with numerous local branches
+        and primarily located near airports or busy city areas and often complemented
+        by an app allowing online reservations.</string>
+    <string name="about_the_app_2"><u>Carzenia</u> primarily serves people who have a car
+        that is temporarily out of reach or out of service,
+        for example travellers who are out of town or owners of damaged or destroyed vehicles
+        who are awaiting repair or insurance compensation.</string>
+    <string name="message_subject">Message Subject...</string>
+    <string name="message_content">Your Message...</string>
+    <string name="contact_us">Contact Us...</string>
+    <string name="send">SEND..!</string>
+    <string name="contact_us_2">Contact Us</string>
+    <string name="issue">Issue</string>
+    <string name="other">Other</string>
+    <string name="view_responses">View Responses</string>
+    <string name="add_new_car">Add a New Car</string>
+    <string name="add_new_admin">Add a New Admin</string>
+    <string name="upload_image">Upload an image</string>
+    <string name="respond">Respond</string>
+    <string name="cars_exhibition">Car Exhibition</string>
+    <string name="login">Login</string>
+    <string name="signup">Sign Up</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="new_user_sign">New User? Sign Up</string>
+    <string name="full_name">Full Name</string>
+    <string name="email">Email</string>
+    <string name="phone_number">Phone</string>
+    <string name="credit_1">FROM BONUS&#8482; TEAM \n ALL RIGHTS ARE RESERVED &#xA9;</string>
+    <string name="credit_2">ALL CREDIT TO BONUS &#8482; TEAM</string>
+    <string name="remove_car_or_cars">Remove Car/s</string>
+    <string name="car_id">Car ID</string>
+    <string name="car_info">Car Info</string>
+    <string name="car_type">Car Type</string>
+    <string name="car_occasion">Car Occasion</string>
+    <string name="car_price_per_hour">Car Price/Hour</string>
+    <string name="remove_selected">Remove Selected</string>
+    <string name="remove_all_cars">Remove All Cars</string>
+    <string name="update_a_car">Update a Car</string>
+    <string name="update">Update</string>
+    <string name="remove">Remove</string>
+    <string name="rent">Rent</string>
+    <string name="rent_from">Rent Form</string>
+    <string name="date_from">Date From</string>
+    <string name="date_to">Date To</string>
+    <string name="total_price">Total Price</string>
+    <string name="confirm_rent">Confirm Rent</string>
+    <string name="number_of_rents">Number Of Rents</string>
+    <string name="save_changes">Save Changes</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_profile">Profile</string>
+    <string name="navigation_drawer_cars">Cars</string>
+    <string name="navigation_drawer_rent">Rent</string>
+    <string name="navigation_drawer_contact">Contact</string>
+    <string name="navigation_drawer_about">About</string>
+    <string name="navigation_drawer_logout">Logout</string>
+    <string name="admin_page">Admin Page</string>
+    <string name="add_car">Add Car</string>
+    <string name="remove_car">Remove Cars</string>
+    <string name="update_car">Update Cars</string>
+    <string name="display_cars">Display Cars</string>
+    <string name="add_admin">Add Admin</string>
 </resources>

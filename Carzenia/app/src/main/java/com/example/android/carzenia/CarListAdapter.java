@@ -9,7 +9,6 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -54,13 +53,13 @@ public class CarListAdapter extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             row = inflater.inflate(layout, null);
 
-            holder.imageView = (ImageView) row.findViewById(R.id.carImageT);
-            holder.idView = (TextView) row.findViewById(R.id.carIDT);
+            holder.imageView = (ImageView) row.findViewById(R.id.image_view_car_item);
+            holder.idView = (TextView) row.findViewById(R.id.text_view_car_id_item);
             holder.typeView = (TextView) row.findViewById(R.id.carTypeT);
-            holder.occasionView = (TextView) row.findViewById(R.id.carOccasionT);
-            holder.priceView = (TextView) row.findViewById(R.id.carPriceT);
-            holder.updateBtn = (Button) row.findViewById(R.id.updateBtnT);
-            holder.removeBtn = (Button) row.findViewById(R.id.removeBtnT);
+            holder.occasionView = (TextView) row.findViewById(R.id.text_view_car_occasion_item);
+            holder.priceView = (TextView) row.findViewById(R.id.text_view_car_price_item);
+            holder.updateBtn = (Button) row.findViewById(R.id.button_car_update_item);
+            holder.removeBtn = (Button) row.findViewById(R.id.button_car_remove_item);
 
             row.setTag(holder);
         }

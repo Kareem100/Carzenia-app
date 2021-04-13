@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextThemeWrapper;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 
 public class AdminActivity extends AppCompatActivity {
@@ -19,13 +18,13 @@ public class AdminActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
 
-        androidx.cardview.widget.CardView addCard = (androidx.cardview.widget.CardView)findViewById(R.id.AddCarBtn);
-        androidx.cardview.widget.CardView removeCard = (androidx.cardview.widget.CardView)findViewById(R.id.RemoveCarBtn);
-        androidx.cardview.widget.CardView updateCard = (androidx.cardview.widget.CardView)findViewById(R.id.UpdateCarBtn);
-        androidx.cardview.widget.CardView displayCard = (androidx.cardview.widget.CardView)findViewById(R.id.DisplayCarsBtn);
+        androidx.cardview.widget.CardView addCard = (androidx.cardview.widget.CardView)findViewById(R.id.card_view_add_car);
+        androidx.cardview.widget.CardView removeCard = (androidx.cardview.widget.CardView)findViewById(R.id.card_view_remove_car);
+        androidx.cardview.widget.CardView updateCard = (androidx.cardview.widget.CardView)findViewById(R.id.card_view_update_car);
+        androidx.cardview.widget.CardView displayCard = (androidx.cardview.widget.CardView)findViewById(R.id.card_view_display_cars);
         androidx.cardview.widget.CardView adminCard = (androidx.cardview.widget.CardView)findViewById(R.id.AddAdminBtn);
         androidx.cardview.widget.CardView logoutCard = (androidx.cardview.widget.CardView)findViewById(R.id.LogoutBtn);
-        ImageView viewMessags = (ImageView)findViewById(R.id.ViewMsgs);
+        ImageView viewMessags = (ImageView)findViewById(R.id.image_view_messages);
 
         addCard.setOnClickListener(new View.OnClickListener(){
             @Override

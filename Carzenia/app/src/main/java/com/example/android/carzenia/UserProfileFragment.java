@@ -35,7 +35,8 @@ public class UserProfileFragment extends Fragment
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable final Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable final Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.user_profile_fragment, container, false);
 
         DB = new DBManager(getContext());
@@ -74,9 +75,11 @@ public class UserProfileFragment extends Fragment
                     if(bitmap!=null)
                         DB.addUserImage(nameTxt.getText().toString(), bitmap);
                     DB.updateUserData(name, mail, phone, password);
-                    Toast.makeText(getContext(), "Data Saved Successfully !!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Data Saved Successfully !!",
+                            Toast.LENGTH_SHORT).show();
                     if (savedInstanceState == null)
-                        getFragmentManager().beginTransaction().replace(R.id.fragment_container, new DisplayCarsFragment()).commit();
+                        getFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                                new DisplayCarsFragment()).commit();
                 }
         }});
         return view;
@@ -84,21 +87,25 @@ public class UserProfileFragment extends Fragment
 
     private boolean goodData(String mail, String phone, String password){
         if (mail.equals("") || phone.equals("") || password.equals("")){
-            Toast.makeText(getContext(), "Please Fill The Empty Fields !!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Please Fill The Empty Fields !!",
+                    Toast.LENGTH_SHORT).show();
             return false;
         }
         else if (password.length() < 3){
-            Toast.makeText(getContext(), "Password Must Be At Least Of 3 Characters !!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Password Must Be At Least Of 3 Characters !!",
+                    Toast.LENGTH_SHORT).show();
             return false;
         }
         else if (phone.length()!=11){
-            Toast.makeText(getContext(), "Phone Number Must Consist Of 11 Digits !!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Phone Number Must Consist Of 11 Digits !!",
+                    Toast.LENGTH_SHORT).show();
             return false;
         }
         else
             for (int i = 0; i < phone.length(); ++i)
                 if(phone.charAt(i) > '9' || phone.charAt(i) < '0'){
-                    Toast.makeText(getContext(), "Phone Number Must Consist Of Only Numbers !!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Phone Number Must Consist Of Only Numbers !!",
+                            Toast.LENGTH_SHORT).show();
                     return false;
                 }
 

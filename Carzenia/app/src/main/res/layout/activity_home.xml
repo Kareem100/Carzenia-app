@@ -21,7 +21,6 @@
             android:layout_height="?actionBarSize"
             android:background="@color/BackgroundColor"
             app:titleTextColor="@color/HighlightColor"
-            android:elevation="4dp"
             app:popupTheme="@style/Theme.AppCompat.DayNight" />
 
         <FrameLayout
@@ -46,23 +45,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_margin="36dp"
+            android:layout_margin="@dimen/large_spacing"
             android:background="@drawable/rounded_corner"
             android:fontFamily="@font/cooper_font"
             android:gravity="center|bottom"
             android:text="@string/app_name"
             android:textColor="@color/FontColor"
-            android:textSize="36sp" />
+            android:textSize="@dimen/text_size_large" />
         <TextView
             style="@style/DefaultText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_margin="12dp"
-            android:textSize="12sp"
+            android:textSize="@dimen/text_size_xx_small"
             android:textColor="@color/HighlightColor"
-            android:text="ALL CREDIT TO BONUS &#8482; TEAM" />
+            android:text="@string/credit_2" />
 
     </com.google.android.material.navigation.NavigationView>
-    >
+
 </androidx.drawerlayout.widget.DrawerLayout>

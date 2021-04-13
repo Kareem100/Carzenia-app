@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/rounded_corner">
+    android:background="@drawable/rounded_corner"
+    android:orientation="vertical">
 
     <TextView
         style="@style/DefaultText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_corner"
-        android:textSize="30dp"
-        android:textColor="#FFF"
-        android:text="About The App"/>
+        android:text="About The App"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_size_medium" />
 
     <TextView
         style="@style/DefaultText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:text=" Carzenia is a company that rents cars automobiles for short periods of time for a fee. It is often organized with numerous local branches and primarily located near airports or busy city areas and often complemented by an app allowing online reservations."/>
+        android:text="@string/about_the_app_1"
+        android:textSize="@dimen/text_size_small" />
 
     <TextView
         style="@style/DefaultText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:text="Carzenia primarily serves people who have a car that is temporarily out of reach or out of service, for example travellers who are out of town or owners of damaged or destroyed vehicles who are awaiting repair or insurance compensation."/>
+        android:text="@string/about_the_app_2"
+        android:textSize="@dimen/text_size_small" />
 
     <Button
+        android:id="@+id/button_contact"
         style="@style/DefaultText"
-        android:id="@+id/contactBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/small_spacing"
         android:background="@drawable/rounded_corner2"
-        android:textColor="#000"
-        android:textSize="18dp"
-        android:text=" Contact Us..."/>
+        android:text="@string/contact_us"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_size_small" />
+
 </LinearLayout>

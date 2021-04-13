@@ -13,26 +13,27 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
     // VARIABLES
     Animation topAnimation, bottomAnimation;
     ImageView logoImage;
     TextView titleView, rightsView, descriptionView;
+    private final int TRANSITION_DELAY_TIME = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_main);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.activity_splash);
 
         //Animation
         topAnimation = AnimationUtils.loadAnimation(this, R.anim.top_animation);
         bottomAnimation = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
 
         //Assignments
-        logoImage = findViewById(R.id.logoImage);
+        logoImage = findViewById(R.id.splash_image_view_logo);
         titleView = findViewById(R.id.titleView);
         rightsView = findViewById(R.id.rightsView);
         descriptionView = findViewById(R.id.descriptionView);
@@ -51,11 +52,13 @@ public class MainActivity extends AppCompatActivity {
                 pairs[0] = new Pair<View, String>(logoImage, "logo_image");
                 pairs[1] = new Pair<View, String>(titleView, "logo_text");
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
-                    startActivity(new Intent(MainActivity.this, LoginActivity.class), options.toBundle());
+                    ActivityOptions options = ActivityOptions.
+                            makeSceneTransitionAnimation(SplashActivity.this, pairs);
+                    startActivity(new Intent(SplashActivity.this,
+                            LoginActivity.class), options.toBundle());
                     finish();
                 }
             }
-        }, 3000);
+        }, TRANSITION_DELAY_TIME);
     }
 }

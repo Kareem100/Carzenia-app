@@ -87,9 +87,9 @@ public class AnswersAdapter extends RecyclerView.Adapter<AnswersAdapter.MyViewHo
 
         public MyViewHolder(@NonNull View itemView ) {
             super(itemView);
-            msg=(TextView)itemView.findViewById(R.id.Msg);
-            userN=(TextView)itemView.findViewById(R.id.UserName);
-            btn=itemView.findViewById(R.id.respond);
+            msg=(TextView)itemView.findViewById(R.id.text_view_message_content);
+            userN=(TextView)itemView.findViewById(R.id.text_view_message_username);
+            btn=itemView.findViewById(R.id.button_admin_message_respond);
 
 
 

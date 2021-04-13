@@ -30,7 +30,7 @@ public class AdminAnswersActivity extends AppCompatActivity {
         db.getMessagesForAdmin();
         messages = db.getMsg();
         username = db.getUsername();
-        btn=findViewById(R.id.respond);
+        btn=findViewById(R.id.button_admin_message_respond);
         try {
             if (!messages.isEmpty()) {
                 AnswersAdapter answersAdapter = new AnswersAdapter(this,messages , username);

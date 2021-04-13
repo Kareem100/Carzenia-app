@@ -15,7 +15,7 @@ public class AboutFragment extends Fragment
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable final Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.about_app_fragment, container, false);
-        view.findViewById(R.id.contactBtn).setOnClickListener(new View.OnClickListener(){
+        view.findViewById(R.id.button_contact).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 if (savedInstanceState == null)

@@ -40,15 +40,16 @@ public class UpdateCarActivity extends AppCompatActivity implements AdapterView.
         setContentView(R.layout.activity_update_car);
 
         // INSTANTIATION
-        spinner = findViewById(R.id.spinner);
-        image = findViewById(R.id.updatedCarImage);
-        typeTxt = findViewById(R.id.updatedTypeInput);
-        occasionTxt = findViewById(R.id.updatedOccasionInput);
-        priceTxt = findViewById(R.id.updatedPriceInput);
+        spinner = findViewById(R.id.spinner_update_car);
+        image = findViewById(R.id.image_view_updated_car);
+        typeTxt = findViewById(R.id.text_input_edit_text_car_type);
+        occasionTxt = findViewById(R.id.text_input_edit_text_car_occasion);
+        priceTxt = findViewById(R.id.text_input_edit_text_car_price);
         button = findViewById(R.id.saveUpdatedCarBtn);
         DB = new DBManager(this);
         arrayList = DB.getAllCarsID();
-        arrayAdapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_list_item_1, arrayList);
+        arrayAdapter = new ArrayAdapter<Integer>(this,
+                android.R.layout.simple_list_item_1, arrayList);
 
         //SETTING ADAPTER & SELECT LISTENER
         spinner.setAdapter(arrayAdapter);
@@ -56,7 +57,8 @@ public class UpdateCarActivity extends AppCompatActivity implements AdapterView.
 
         // SETTING THE DEFAULT VALUES
         if(arrayList.isEmpty())
-            Toast.makeText(this, "Please Add Some Cars First !!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please Add Some Cars First !!",
+                    Toast.LENGTH_SHORT).show();
         else {
             selectedID = getIntent().getIntExtra("CarID", 1);
             spinner.setSelection(selectedID-1);
@@ -69,14 +71,16 @@ public class UpdateCarActivity extends AppCompatActivity implements AdapterView.
                 Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(intent, "Pick An Image !"), GALLERY_REQUEST_CODE);
+                startActivityForResult(Intent.createChooser(intent, "Pick An Image !"),
+                        GALLERY_REQUEST_CODE);
             }
         });
         button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 if(arrayList.isEmpty())
-                    Toast.makeText(UpdateCarActivity.this, "No Cars To Update...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateCarActivity.this, "No Cars To Update...",
+                            Toast.LENGTH_SHORT).show();
                 else {
                     if(!imageChanged)bitmap=DB.getCarImage(selectedID);
                     else imageChanged=false;
@@ -87,7 +91,8 @@ public class UpdateCarActivity extends AppCompatActivity implements AdapterView.
 
                     if(validData(type, occasion, price)){
                         DB.updateCarData(selectedID, type, occasion, price, bitmap);
-                        Toast.makeText(UpdateCarActivity.this, "Car Data Updated !!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(UpdateCarActivity.this, "Car Data Updated !!",
+                                Toast.LENGTH_LONG).show();
                     }
                 }
 
@@ -117,7 +122,8 @@ public class UpdateCarActivity extends AppCompatActivity implements AdapterView.
 
             for(int i = 0; i <price.length(); ++i)
                 if(price.charAt(i)<'0' || price.charAt(i)>'9'){
-                    Toast.makeText(this, "Please Enter The Price Per Hour Only As Numbers !", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Please Enter The Price Per Hour Only As Numbers !",
+                            Toast.LENGTH_SHORT).show();
                     return false;
                 }
         }

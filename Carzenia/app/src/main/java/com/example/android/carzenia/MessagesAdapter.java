@@ -47,8 +47,8 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            msg=(TextView)itemView.findViewById(R.id.UserMsg);
-            ans=(TextView)itemView.findViewById(R.id.AdminAns);
+            msg=(TextView)itemView.findViewById(R.id.text_view_from_admin_message_content);
+            ans=(TextView)itemView.findViewById(R.id.text_view_admin_name);
 
         }
     }
