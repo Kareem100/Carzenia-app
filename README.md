@@ -1,5 +1,17 @@
 # Carzenia-app
 
+### System Description 
+
+<b>Carzenia</b> is a company that rents cars automobile for short periods of time for a fee.</br> 
+        It is often organized with numerous local branches </br>
+        and primarily located near airports or busy city areas </br>
+        and often complemented by an app allowing online reservations. </br>
+***
+##### Tools Used
+- SQLite
+- OOP Concepts
+- MVC Model
+***
 ## 1- Main Activity (Kareem)
 ![](Screenshots/0_splash_screen.jpg)
 
