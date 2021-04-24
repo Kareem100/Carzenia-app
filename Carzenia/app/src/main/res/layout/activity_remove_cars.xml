@@ -6,7 +6,7 @@
     android:background="@drawable/b3"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".UpdateCarActivity">
+    tools:context=".AdminActivities.UpdateCarActivity">
 
     <TextView
         android:layout_width="wrap_content"

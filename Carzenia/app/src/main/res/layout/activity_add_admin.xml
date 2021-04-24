@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/b3"
     android:orientation="vertical"
-    tools:context=".AddAdminActivity">
+    tools:context=".AdminActivities.AddAdminActivity">
 
     <TextView
         android:layout_width="wrap_content"

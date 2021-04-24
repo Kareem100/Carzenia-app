@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/nav_header_height"
+    android:background="@color/HighlightColor"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:padding="@dimen/medium_spacing"
+    tools:context=".UserFragments.HomeActivity">
+
+    <ImageView
+        android:id="@+id/image_view_nav_user_image"
+        android:layout_width="@dimen/profile_image_dimensions"
+        android:layout_height="@dimen/profile_image_dimensions"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher_round" />
+
+    <TextView
+        android:id="@+id/text_view_nav_username"
+        style="@style/DefaultText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
+        android:paddingTop="@dimen/small_spacing"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_size_small"
+        tools:text="Username" />
+
+    <TextView
+        android:id="@+id/text_view_nav_user_mail"
+        style="@style/DefaultText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
+        android:textColor="@color/PrimaryColor"
+        android:textSize="@dimen/text_size_x_small"
+        tools:text="example@mail.com" />
+
+</LinearLayout>

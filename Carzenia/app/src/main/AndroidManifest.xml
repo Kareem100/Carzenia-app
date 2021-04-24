@@ -13,34 +13,31 @@
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
         <activity
-            android:name=".AdminAnswersActivity"
-            android:parentActivityName=".AdminActivity"/>
-        <activity android:name=".UserMessagesActivity" />
+            android:name=".AdminUserMessages.AdminAnswersActivity"
+            android:parentActivityName=".AdminActivities.AdminActivity"/>
+        <activity android:name=".AdminUserMessages.UserMessagesActivity" />
         <activity
-            android:name=".RentalActivity"
-            android:parentActivityName=".HomeActivity" />
-        <activity
-            android:name=".HomeActivity"
+            android:name=".UserFragments.HomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AddAdminActivity"
-            android:parentActivityName=".AdminActivity" />
+            android:name=".AdminActivities.AddAdminActivity"
+            android:parentActivityName=".AdminActivities.AdminActivity" />
         <activity
-            android:name=".RemoveCarsActivity"
-            android:parentActivityName=".AdminActivity" />
+            android:name=".AdminActivities.RemoveCarsActivity"
+            android:parentActivityName=".AdminActivities.AdminActivity" />
         <activity
-            android:name=".UpdateCarActivity"
-            android:parentActivityName=".AdminActivity" />
+            android:name=".AdminActivities.UpdateCarActivity"
+            android:parentActivityName=".AdminActivities.AdminActivity" />
         <activity
-            android:name=".DisplayCarsActivity"
-            android:parentActivityName=".AdminActivity" />
+            android:name=".AdminActivities.DisplayCarsActivity"
+            android:parentActivityName=".AdminActivities.AdminActivity" />
         <activity
-            android:name=".AddCarActivity"
-            android:parentActivityName=".AdminActivity" />
-        <activity android:name=".AdminActivity" />
-        <activity android:name=".SignupActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".SplashActivity">
+            android:name=".AdminActivities.AddCarActivity"
+            android:parentActivityName=".AdminActivities.AdminActivity" />
+        <activity android:name=".AdminActivities.AdminActivity" />
+        <activity android:name=".UserAuthentication.SignupActivity" />
+        <activity android:name=".UserAuthentication.LoginActivity" />
+        <activity android:name=".UserAuthentication.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

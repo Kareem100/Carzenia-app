@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/b3"
-    tools:context=".AddCarActivity">
+    tools:context=".AdminActivities.AddCarActivity">
 
     <TextView
         android:id="@+id/text_view_add_car_title"

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".SplashActivity">
+    tools:context=".UserAuthentication.SplashActivity">
 
     <ImageView
         android:id="@+id/splash_image_view_logo"

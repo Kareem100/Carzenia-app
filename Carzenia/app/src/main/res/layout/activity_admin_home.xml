@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/BackgroundColor"
+    android:orientation="vertical"
+    tools:context=".AdminActivities.AdminActivity">
+
+    <TextView
+        android:id="@+id/text_view_admin_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/medium_spacing"
+        android:background="@drawable/border"
+        android:fontFamily="@font/cooper_font"
+        android:text="@string/admin_page"
+        android:textAllCaps="true"
+        android:textColor="@color/FontColor"
+        android:textSize="@dimen/text_size_medium" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/text_view_admin_title"
+        android:columnCount="2"
+        android:rowCount="3">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view_add_car"
+            style="@style/cardViewTheme"
+            app:cardBackgroundColor="@color/PrimaryColor"
+            app:cardCornerRadius="@dimen/admin_card_view_radius">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/add_car_icon" />
+
+                <TextView
+                    style="@style/DefaultText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/small_spacing"
+                    android:text="@string/add_car"
+                    android:textAllCaps="true" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view_remove_car"
+            style="@style/cardViewTheme"
+            app:cardBackgroundColor="@color/PrimaryColor"
+            app:cardCornerRadius="@dimen/admin_card_view_radius">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/remove_car_icon" />
+
+                <TextView
+                    style="@style/DefaultText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/small_spacing"
+                    android:text="@string/remove_car"
+                    android:textAllCaps="true" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view_update_car"
+            style="@style/cardViewTheme"
+            app:cardBackgroundColor="@color/PrimaryColor"
+            app:cardCornerRadius="@dimen/admin_card_view_radius">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/update_car_icon" />
+
+                <TextView
+                    style="@style/DefaultText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/small_spacing"
+                    android:text="@string/update_car"
+                    android:textAllCaps="true" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view_display_cars"
+            style="@style/cardViewTheme"
+            app:cardBackgroundColor="@color/PrimaryColor"
+            app:cardCornerRadius="@dimen/admin_card_view_radius">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/display_car_icon" />
+
+                <TextView
+                    style="@style/DefaultText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/small_spacing"
+                    android:text="@string/display_cars"
+                    android:textAllCaps="true" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/AddAdminBtn"
+            style="@style/cardViewTheme"
+            app:cardBackgroundColor="@color/PrimaryColor"
+            app:cardCornerRadius="@dimen/admin_card_view_radius">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/add_admin_icon" />
+
+                <TextView
+                    style="@style/DefaultText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/small_spacing"
+                    android:text="@string/add_admin"
+                    android:textAllCaps="true" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/LogoutBtn"
+            style="@style/cardViewTheme"
+            app:cardBackgroundColor="@color/PrimaryColor"
+            app:cardCornerRadius="20dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/logout_icon" />
+
+                <TextView
+                    style="@style/DefaultText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/small_spacing"
+                    android:text="@string/navigation_drawer_logout"
+                    android:textAllCaps="true" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </GridLayout>
+
+    <ImageView
+        android:id="@+id/image_view_messages"
+        android:layout_width="@dimen/message_icon_dimensions"
+        android:layout_height="@dimen/message_icon_dimensions"
+        android:layout_marginTop="@dimen/large_spacing"
+        android:layout_toRightOf="@id/text_view_admin_title"
+        android:background="@drawable/rounded_corner2"
+        android:src="@drawable/ic_message" />
+</RelativeLayout>
