@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.FragmentActivity;
 
-import com.example.android.carzenia.CarsDatabase.CarModel;
+import com.example.android.carzenia.SystemDatabase.CarModel;
 import com.example.android.carzenia.R;
 import com.example.android.carzenia.UserFragments.RentFormFragment;
 

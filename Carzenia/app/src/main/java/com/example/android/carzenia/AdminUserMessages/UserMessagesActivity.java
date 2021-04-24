@@ -7,10 +7,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.android.carzenia.CarsDatabase.DBManager;
+import com.example.android.carzenia.SystemDatabase.DBManager;
 import com.example.android.carzenia.UserAuthentication.LoginActivity;
 import com.example.android.carzenia.Adapters.UserMessagesAdapter;
 import com.example.android.carzenia.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
@@ -28,7 +29,7 @@ public class UserMessagesActivity extends AppCompatActivity {
         db = new DBManager(this);
 
         recyclerView = findViewById(R.id.rec);
-        db.getAnswersForUser(LoginActivity.user);
+        db.getAnswersForUser(FirebaseAuth.getInstance().getCurrentUser().getEmail());
         Messages = db.getMessage1();
         Answers = db.getAnswer1();
         try {

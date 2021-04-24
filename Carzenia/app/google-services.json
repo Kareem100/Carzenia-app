@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "112787326346",
+    "project_id": "carzenia-app",
+    "storage_bucket": "carzenia-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:112787326346:android:85ce915875a52d69daf473",
+        "android_client_info": {
+          "package_name": "com.example.android.carzenia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "112787326346-kgo1k1sr3defel47b27a010tk4m7qs12.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9RynaIqg91sfRvIay_gWjgF5UQ7LgkVM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "112787326346-kgo1k1sr3defel47b27a010tk4m7qs12.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

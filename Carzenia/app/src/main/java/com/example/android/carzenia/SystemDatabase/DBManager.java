@@ -1,4 +1,4 @@
-package com.example.android.carzenia.CarsDatabase;
+package com.example.android.carzenia.SystemDatabase;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -24,6 +24,7 @@ public class DBManager extends SQLiteOpenHelper {
     private ArrayList<String> username;
     private ArrayList<String> msg ;
     private Context context;
+    private final String USER_TABLE = "User";
 
     public DBManager(@Nullable Context context) {
         super(context, "CarzeniaDatabase", null, 1);
@@ -223,6 +224,16 @@ public class DBManager extends SQLiteOpenHelper {
         CarzeniaDatabase.close();
     }
 
+    // Recently added!
+    public void addUserData(String mail, String password) {
+        ContentValues row = new ContentValues();
+        row.put("Mail", mail);
+        row.put("Password", password);
+        CarzeniaDatabase = getWritableDatabase();
+        CarzeniaDatabase.insert(USER_TABLE, null, row);
+        CarzeniaDatabase.close();
+    }
+
     public void updateUserData(String name, String mail, String phone, String pass){
         ContentValues values = new ContentValues();
         values.put("Mail", mail);
@@ -299,9 +310,19 @@ public class DBManager extends SQLiteOpenHelper {
         return phone;
     }
 
-    public String getUserPassword(String username){
+    /*public String getUserPassword(String username){
         CarzeniaDatabase = getReadableDatabase();
         Cursor cursor = CarzeniaDatabase.rawQuery("SELECT Password FROM User WHERE Name = ?", new String[]{username});
+        cursor.moveToFirst();
+        String password = cursor.getString(0);
+        CarzeniaDatabase.close();
+        return password;
+    }*/
+
+    // Recently added!
+    public String getUserPassword(String userMail){
+        CarzeniaDatabase = getReadableDatabase();
+        Cursor cursor = CarzeniaDatabase.rawQuery("SELECT Password FROM User WHERE Mail = ?", new String[]{userMail});
         cursor.moveToFirst();
         String password = cursor.getString(0);
         CarzeniaDatabase.close();

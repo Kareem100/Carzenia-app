@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.android.carzenia.CarsDatabase.DBManager;
+import com.example.android.carzenia.SystemDatabase.DBManager;
 import com.example.android.carzenia.R;
 
 public class AddAdminActivity extends AppCompatActivity {

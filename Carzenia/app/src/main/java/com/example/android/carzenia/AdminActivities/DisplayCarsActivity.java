@@ -6,8 +6,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.android.carzenia.Adapters.AdminCarsListAdapter;
-import com.example.android.carzenia.CarsDatabase.CarModel;
-import com.example.android.carzenia.CarsDatabase.DBManager;
+import com.example.android.carzenia.SystemDatabase.CarModel;
+import com.example.android.carzenia.SystemDatabase.DBManager;
 import com.example.android.carzenia.R;
 
 import java.util.ArrayList;

@@ -23,7 +23,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
-import com.example.android.carzenia.CarsDatabase.DBManager;
+import com.example.android.carzenia.SystemDatabase.DBManager;
 import com.example.android.carzenia.R;
 
 import java.text.SimpleDateFormat;

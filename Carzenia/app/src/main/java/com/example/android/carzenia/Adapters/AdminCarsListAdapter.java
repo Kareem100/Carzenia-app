@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.example.android.carzenia.AdminActivities.RemoveCarsActivity;
 import com.example.android.carzenia.AdminActivities.UpdateCarActivity;
-import com.example.android.carzenia.CarsDatabase.CarModel;
+import com.example.android.carzenia.SystemDatabase.CarModel;
 import com.example.android.carzenia.R;
 
 import java.util.ArrayList;

@@ -18,7 +18,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android.carzenia.AdminUserMessages.AdminAnswersActivity;
-import com.example.android.carzenia.CarsDatabase.DBManager;
+import com.example.android.carzenia.SystemDatabase.DBManager;
 import com.example.android.carzenia.R;
 
 import java.util.ArrayList;

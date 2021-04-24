@@ -1,4 +1,4 @@
-package com.example.android.carzenia.CarsDatabase;
+package com.example.android.carzenia.SystemDatabase;
 
 import android.graphics.Bitmap;
 

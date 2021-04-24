@@ -24,8 +24,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/comicz"
             android:layout_marginBottom="@dimen/small_spacing"
+            android:fontFamily="@font/comicz"
             android:text="@string/signup"
             android:textAlignment="center"
             android:textColor="@color/FontColor"
@@ -46,6 +46,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/comic_font"
+                android:inputType="text"
+                android:maxLines="1"
                 android:textColor="@color/FontColor" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -63,6 +65,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/comic_font"
+                android:inputType="text"
+                android:maxLines="1"
                 android:textColor="@color/FontColor" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -80,6 +84,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/comic_font"
+                android:inputType="number"
+                android:maxLines="1"
                 android:textColor="@color/FontColor" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -99,6 +105,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/comic_font"
                 android:inputType="textPassword"
+                android:maxLines="1"
                 android:textColor="@color/FontColor" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -118,15 +125,23 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/comic_font"
                 android:inputType="textPassword"
+                android:maxLines="1"
                 android:textColor="@color/FontColor" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <ProgressBar
+            android:id="@+id/progress_circular"
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:visibility="invisible" />
 
         <Button
             android:id="@+id/button_signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/small_spacing"
-            android:layout_marginTop="@dimen/medium_spacing"
             android:layout_marginRight="@dimen/small_spacing"
             android:background="@android:color/black"
             android:fontFamily="@font/comic_font"

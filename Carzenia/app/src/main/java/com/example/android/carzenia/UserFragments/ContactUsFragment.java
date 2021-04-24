@@ -9,16 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-import com.example.android.carzenia.CarsDatabase.DBManager;
-import com.example.android.carzenia.UserAuthentication.LoginActivity;
+import com.example.android.carzenia.SystemDatabase.DBManager;
 import com.example.android.carzenia.R;
 import com.example.android.carzenia.AdminUserMessages.UserMessagesActivity;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class ContactUsFragment extends Fragment
 {
-    private String usermsg;
-    private static String username;
+    private String userMsg;
+    private static String userName;
     private TextInputEditText msg;
     private DBManager helper;
     @Nullable
@@ -32,11 +32,11 @@ public class ContactUsFragment extends Fragment
             public void onClick(View view)
             {
 
-                usermsg=msg.getText().toString();
-                username = LoginActivity.user;
+                userMsg =msg.getText().toString();
+                userName = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
                 helper=new DBManager(ContactUsFragment.this.getContext());
 
-                helper.InsertMessages(usermsg,username);
+                helper.InsertMessages(userMsg, userName);
                 Toast.makeText(getContext(), "Your Message Has Been Sent !!", Toast.LENGTH_LONG).show();
             }
         });
@@ -44,8 +44,8 @@ public class ContactUsFragment extends Fragment
             @Override
             public void onClick(View v) {
                 helper=new DBManager(ContactUsFragment.this.getContext());
-                username=LoginActivity.user;
-                helper.getAnswersForUser(username);
+                userName =FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
+                helper.getAnswersForUser(userName);
                 startActivity(new Intent(ContactUsFragment.this.getContext(), UserMessagesActivity.class));
             }
         });

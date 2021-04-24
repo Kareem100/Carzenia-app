@@ -10,55 +10,80 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.ContextThemeWrapper;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.android.carzenia.CarsDatabase.DBManager;
+import com.example.android.carzenia.SystemDatabase.DBHolders;
+import com.example.android.carzenia.SystemDatabase.DBManager;
+import com.example.android.carzenia.SystemDatabase.UserModel;
 import com.example.android.carzenia.UserAuthentication.LoginActivity;
 import com.example.android.carzenia.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
-    public static String username = "User123";
-    private DBManager DB;
+    private UserModel userModel;
+    private DatabaseReference databaseRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        final NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         // FOR USER DATA
-        DB = new DBManager(this);
-        View header = navigationView.getHeaderView(0);
-        ((TextView)header.findViewById(R.id.text_view_nav_username)).setText(username);
-        ((TextView)header.findViewById(R.id.text_view_nav_user_mail)).setText(DB.getUserMail(username));
-        ImageView image = header.findViewById(R.id.image_view_nav_user_image);
-        Bitmap bm = DB.getUserImage(username);
-        if(bm!=null)
-            image.setImageBitmap(bm);
+        databaseRef = FirebaseDatabase.getInstance().getReference(DBHolders.USERS_DATABASE_INFO_ROOT);
+        databaseRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        userModel = snapshot.getValue(UserModel.class);
+                        View header = navigationView.getHeaderView(0);
+                        ImageView userImageView = header.findViewById(R.id.image_view_nav_user_image);
+                        if(userModel.getImageUrl()!=UserModel.NO_IMAGE)
+                            Picasso.get().load(userModel.getImageUrl())
+                                    .placeholder(R.mipmap.ic_launcher_round)
+                                    .into(userImageView);
+                        ((TextView)header.findViewById(R.id.text_view_nav_username)).setText(userModel.getName());
+                        ((TextView)header.findViewById(R.id.text_view_nav_user_mail)).setText(userModel.getMail());
+                    }
 
-        // FOR TOGGLE ICON
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        toggle.getDrawerArrowDrawable().setColor(Color.parseColor("#FB8C00"));
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(HomeActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        // FOR NAVIGATION TOGGLE ICON
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        toggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.HighlightColor));
 
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         if (savedInstanceState == null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DisplayCarsFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    new DisplayCarsFragment()).commit();
             navigationView.setCheckedItem(R.id.DisplayCarsNav);
         }
     }
@@ -74,7 +99,15 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new RentFormFragment()).commit();
                 break;
             case R.id.ProfileNav:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new UserProfileFragment()).commit();
+                Bundle bundle = new Bundle();
+                bundle.putString("ImageUrl", userModel.getImageUrl());
+                bundle.putString("UserName", userModel.getName());
+                bundle.putString("UserMail", userModel.getMail());
+                bundle.putString("UserPhone", userModel.getPhone());
+                bundle.putString("UserPassword", "123456");
+                UserProfileFragment userProfileFragment = new UserProfileFragment();
+                userProfileFragment.setArguments(bundle);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, userProfileFragment).commit();
                 break;
             case R.id.FeedbackNav:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ContactUsFragment()).commit();
@@ -101,17 +134,18 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     private void showAlertDialog(){
         AlertDialog.Builder alert = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.AlertDialogCustom));
-        alert.setTitle("ALERT");
-        alert.setMessage("Do You Want To Logout ?");
+        alert.setTitle(R.string.alert_title);
+        alert.setMessage(R.string.alert_logout_body);
         alert.setIcon(R.drawable.logout_icon);
-        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        alert.setPositiveButton(R.string.alert_positive_button, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(HomeActivity.this, LoginActivity.class));
                 finish();
             }
         });
-        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        alert.setNegativeButton(R.string.alert_negative_button, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
             }

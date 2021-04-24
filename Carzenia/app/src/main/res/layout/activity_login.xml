@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:hint="@string/username"
+            android:hint="@string/user_mail"
             android:textColorHint="@android:color/black">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -66,16 +66,30 @@
                 android:textColor="@color/HighlightColor" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="20dp"
-            android:background="@android:color/black"
-            android:padding="@dimen/medium_spacing"
-            android:text="Forget Password?"
-            android:textColor="@android:color/white" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ProgressBar
+                android:id="@+id/progress_login_circular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/large_spacing"
+                android:layout_centerInParent="true"
+                style="@style/Widget.AppCompat.ProgressBar"
+                android:visibility="invisible"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/small_spacing"
+                android:layout_marginBottom="@dimen/medium_spacing"
+                android:background="@android:color/black"
+                android:padding="@dimen/medium_spacing"
+                android:text="@string/forget_password"
+                android:textColor="@android:color/white" />
+        </RelativeLayout>
 
         <Button
             android:id="@+id/button_login"
