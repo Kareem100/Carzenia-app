@@ -9,6 +9,7 @@
 ***
 ##### Tools Used
 - SQLite
+- Firebase
 - OOP Concepts
 - MVC Model
 ***
