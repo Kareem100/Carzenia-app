@@ -76,7 +76,7 @@ public class UserCarsListAdapter extends BaseAdapter {
         }
         CarModel carModel = carsList.get(position);
 
-        holder.imageView.setImageBitmap(carModel.getBitmap());
+//        holder.imageView.setImageBitmap(carModel.getBitmap());
         holder.idView.setText("ID: "+String.valueOf(carModel.getId()));
         holder.typeView.setText(carModel.getType());
         holder.occasionView.setText(carModel.getOccasion());

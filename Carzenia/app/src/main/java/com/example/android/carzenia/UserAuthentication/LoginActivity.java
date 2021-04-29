@@ -26,8 +26,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -106,9 +108,6 @@ public class LoginActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<DataSnapshot> task) {
                                     if (task.isSuccessful()) {
                                         UserModel userModel = task.getResult().getValue(UserModel.class);
-                                        Toast.makeText(LoginActivity.this,
-                                                getString(R.string.toast_registered_successfully)
-                                                + " "+ userModel.getName() + " !!", Toast.LENGTH_LONG).show();
                                         if (userModel.getType().equals(UserType.Customer))
                                             startActivity(new Intent(LoginActivity.this,
                                                     HomeActivity.class)); // FOR CUSTOMERS
@@ -153,15 +152,4 @@ public class LoginActivity extends AppCompatActivity {
         loginTextView.setVisibility(View.VISIBLE);
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        if (firebaseAuth.getCurrentUser() != null) {
-            // Handle The Logged in User
-            startActivity(new Intent(LoginActivity.this, HomeActivity.class)
-                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
-            finish();
-        }
-    }
 }

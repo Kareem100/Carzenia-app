@@ -112,7 +112,7 @@ public class DBManager extends SQLiteOpenHelper {
             String price = cursor.getString(3);
             ImageBytes = cursor.getBlob(4);
             Bitmap bitmap = BitmapFactory.decodeByteArray(ImageBytes, 0, ImageBytes.length);
-            arrayList.add(new CarModel(ID, type, occasion, price, bitmap));
+            //arrayList.add(new CarModel(ID, type, occasion, price, bitmap));
 
             cursor.moveToNext();
         }

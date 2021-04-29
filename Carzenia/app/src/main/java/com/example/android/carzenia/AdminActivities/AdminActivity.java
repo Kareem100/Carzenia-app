@@ -14,6 +14,7 @@ import com.example.android.carzenia.AdminUserMessages.AdminAnswersActivity;
 import com.example.android.carzenia.SystemDatabase.DBManager;
 import com.example.android.carzenia.UserAuthentication.LoginActivity;
 import com.example.android.carzenia.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class AdminActivity extends AppCompatActivity {
     private DBManager db;
@@ -81,6 +82,7 @@ public class AdminActivity extends AppCompatActivity {
     public void onBackPressed() {
         showAlertDialog();
     }
+
     private void showAlertDialog(){
         AlertDialog.Builder alert = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.AlertDialogCustom));
         alert.setTitle("ALERT");
@@ -89,6 +91,7 @@ public class AdminActivity extends AppCompatActivity {
         alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(AdminActivity.this, LoginActivity.class));
                 finish();
             }
@@ -100,4 +103,5 @@ public class AdminActivity extends AppCompatActivity {
         });
         alert.show();
     }
+
 }

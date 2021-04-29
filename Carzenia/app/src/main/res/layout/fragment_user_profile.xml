@@ -180,4 +180,5 @@
             android:text="@string/save_changes"
             android:textColor="@color/FontColor" />
     </LinearLayout>
+
 </ScrollView>

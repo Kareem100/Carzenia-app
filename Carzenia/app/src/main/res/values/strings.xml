@@ -50,6 +50,7 @@
     <string name="date_from">Date From</string>
     <string name="date_to">Date To</string>
     <string name="total_price">Total Price</string>
+    <string name="price_per_hour">LE. Per Hour</string>
     <string name="confirm_rent">Confirm Rent</string>
     <string name="number_of_rents">Number Of Rents</string>
     <string name="save_changes">Save Changes</string>
@@ -63,6 +64,7 @@
     <string name="navigation_drawer_logout">Logout</string>
     <string name="admin_page">Admin Page</string>
     <string name="add_car">Add Car</string>
+    <string name="add_the_car">Add The Car</string>
     <string name="remove_car">Remove Cars</string>
     <string name="update_car">Update Cars</string>
     <string name="display_cars">Display Cars</string>
@@ -71,6 +73,17 @@
     <string name="toast_empty_fields">Please Fill The Empty Fields !!</string>
     <string name="toast_empty_mail">Please Enter Your Email !!</string>
     <string name="toast_empty_pass">Please Enter Your Password !!</string>
+    <string name="toast_enter_car_image">Please Add The Car Image !</string>
+    <string name="toast_enter_car_type">Please Mention The Car Type !</string>
+    <string name="toast_enter_car_occasion">Please Mention The Car Occasion !</string>
+    <string name="toast_enter_car_price">Please Mention The Car Price !</string>
+    <string name="toast_add_cars">Please Add Some Cars First !!</string>
+    <string name="toast_enter_car_added">Car Added To The Exhibition.</string>
+    <string name="toast_all_cars_removed">All Cars Have Been Removed !!</string>
+    <string name="toast_no_car_to_remove">"There's No Car To Remove !!"</string>
+    <string name="toast_no_car_to_update">"There's No Car To Update !!"</string>
+    <string name="toast_no_existing_cars">"There's No Existing Cars !!"</string>
+    <string name="toast_no_cars_to_show">"No Cars To Show !"</string>
     <string name="toast_name_validation">Name Must Be At Least Of 3 Characters !!</string>
     <string name="toast_pass_validation">Password Must Be At Least Of 3 Characters !!</string>
     <string name="toast_pass_match">The Passwords Don\'t Match.. !!</string>
@@ -85,9 +98,14 @@
     <string name="toast_data_saved">Data Saved Successfully !!</string>
     <string name="toast_update_in_progress">Upload In Progress !!</string>
     <string name="toast_pick_image">Pick An Image !</string>
+    <string name="toast_nothing_selected">THE EXHIBITION IS EMPTY !!</string>
+    <string name="toast_new_admin_added">New Admin Has Been Added !!</string>
+    <string name="toast_car_with_id_removed">Car With ID: %1$s\nHas Been Removed</string>
+    <string name="toast_car_with_id_updated">Car With ID: %1$s\nHas Been Updated</string>
 
     <string name="alert_title">ALERT</string>
     <string name="alert_logout_body">Do You Want To Logout ?</string>
+    <string name="alert_remove_all_cars_body">Are You Sure ?\nDo You Want To Remove All The Existing Cars ?</string>
     <string name="alert_positive_button">Yes</string>
     <string name="alert_negative_button">No</string>
 </resources>

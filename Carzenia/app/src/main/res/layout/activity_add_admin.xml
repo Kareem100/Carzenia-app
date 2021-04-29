@@ -37,14 +37,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/medium_spacing"
-            android:hint="Name"
+            android:hint="@string/user_mail"
             android:textColorHint="@color/FontColor">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/text_input_edit_text_admin_name"
+                android:id="@+id/text_input_edit_text_admin_mail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/comic_font"
+                android:inputType="text"
                 android:textColor="@color/FontColor" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -52,7 +53,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="@string/password"
             android:textColorHint="@color/FontColor"
             app:passwordToggleEnabled="true">
 
@@ -66,6 +67,14 @@
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
+    <ProgressBar
+        android:id="@+id/progress_add_admin"
+        android:layout_width="@dimen/large_spacing"
+        android:layout_height="@dimen/large_spacing"
+        android:layout_below="@id/linear_layout_data_container"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible" />
+
     <Button
         android:id="@+id/button_add_admin"
         style="@style/DefaultText"
@@ -76,4 +85,5 @@
         android:layout_margin="@dimen/large_spacing"
         android:background="@drawable/rounded_corner2"
         android:text="Add Admin" />
+
 </RelativeLayout>
