@@ -9,23 +9,23 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.fragment.app.FragmentActivity;
-
 import com.example.android.carzenia.SystemDatabase.CarModel;
 import com.example.android.carzenia.R;
 import com.example.android.carzenia.UserFragments.RentFormFragment;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class UserCarsListAdapter extends BaseAdapter {
+public class CustomerCarsListAdapter extends BaseAdapter {
 
     private FragmentActivity activity;
     private Context context;
     private int layout;
-    private ArrayList<CarModel> carsList;
+    private List<CarModel> carsList;
 
-    public UserCarsListAdapter(FragmentActivity activity, int layout, ArrayList<CarModel> carsList) {
+    public CustomerCarsListAdapter(FragmentActivity activity, int layout, List<CarModel> carsList) {
         this.activity = activity;
         this.context = activity.getBaseContext();
         this.layout = layout;
@@ -47,7 +47,7 @@ public class UserCarsListAdapter extends BaseAdapter {
         return position;
     }
 
-    private class ViewHolder{
+    private class ViewHolder {
         ImageView imageView;
         TextView idView, typeView, occasionView, priceView;
         Button rentButton;
@@ -58,36 +58,33 @@ public class UserCarsListAdapter extends BaseAdapter {
         View row = view;
         ViewHolder holder = new ViewHolder();
 
-        if(row == null){
+        if (row == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             row = inflater.inflate(layout, null);
 
-            holder.imageView = (ImageView) row.findViewById(R.id.image_view_users_car_image_item);
-            holder.idView = (TextView) row.findViewById(R.id.text_view_users_car_id_item);
-            holder.typeView = (TextView) row.findViewById(R.id.text_view_users_car_type_item);
-            holder.occasionView = (TextView) row.findViewById(R.id.text_view_users_car_occasion_item);
-            holder.priceView = (TextView) row.findViewById(R.id.text_view_users_car_price_item);
-            holder.rentButton = (Button) row.findViewById(R.id.rentBtn);
+            holder.imageView = row.findViewById(R.id.image_view_users_car_image_item);
+            holder.idView = row.findViewById(R.id.text_view_users_car_id_item);
+            holder.typeView = row.findViewById(R.id.text_view_users_car_type_item);
+            holder.occasionView = row.findViewById(R.id.text_view_users_car_occasion_item);
+            holder.priceView = row.findViewById(R.id.text_view_users_car_price_item);
+            holder.rentButton = row.findViewById(R.id.rentBtn);
 
             row.setTag(holder);
-        }
-        else {
+        } else {
             holder = (ViewHolder) row.getTag();
         }
         CarModel carModel = carsList.get(position);
 
-//        holder.imageView.setImageBitmap(carModel.getBitmap());
-        holder.idView.setText("ID: "+String.valueOf(carModel.getId()));
+        Picasso.get().load(carModel.getImageUri()).into(holder.imageView);
+        //holder.idView.setText("ID: " + String.valueOf(carModel.getId()));
+        holder.idView.setText("ID: " + String.valueOf(position+1));
         holder.typeView.setText(carModel.getType());
         holder.occasionView.setText(carModel.getOccasion());
-        holder.priceView.setText(carModel.getPrice()+" LE. Per Hour");
-        holder.rentButton.setOnClickListener(new View.OnClickListener(){
+        holder.priceView.setText(context.getString(R.string.price_per_hour));
+
+        holder.rentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Intent intent = new Intent(context, RentalActivity.class);
-                intent.putExtra("CarID", position);
-                context.startActivity(intent);*/
-
                 Bundle bundle = new Bundle();
                 bundle.putString("CarID", String.valueOf(position));
                 RentFormFragment rentFormFragment = new RentFormFragment();

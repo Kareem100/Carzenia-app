@@ -8,8 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android.carzenia.SystemDatabase.DBManager;
-import com.example.android.carzenia.UserAuthentication.LoginActivity;
-import com.example.android.carzenia.Adapters.UserMessagesAdapter;
+import com.example.android.carzenia.Adapters.CustomerMessagesAdapter;
 import com.example.android.carzenia.R;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -34,8 +33,8 @@ public class UserMessagesActivity extends AppCompatActivity {
         Answers = db.getAnswer1();
         try {
             if (!Messages.isEmpty()) {
-                UserMessagesAdapter userMessagesAdapter = new UserMessagesAdapter(this, Messages, Answers);
-                recyclerView.setAdapter(userMessagesAdapter);
+                CustomerMessagesAdapter customerMessagesAdapter = new CustomerMessagesAdapter(this, Messages, Answers);
+                recyclerView.setAdapter(customerMessagesAdapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(this));
             } else {
                 Toast.makeText(this, "No Messages yet", Toast.LENGTH_LONG);

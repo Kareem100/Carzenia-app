@@ -75,8 +75,8 @@ public class AdminCarsListAdapter extends BaseAdapter {
         CarModel carModel = carsList.get(position);
 
         Picasso.get().load(carModel.getImageUri()).placeholder(R.mipmap.ic_launcher_round).into(holder.imageView);
-        //holder.idView.setText(String.valueOf(carModel.getId()));
-        holder.idView.setText(String.valueOf(position+1));
+        //holder.idView.setText("ID: " + String.valueOf(carModel.getId()));
+        holder.idView.setText("ID: " + String.valueOf(position+1));
         holder.typeView.setText(carModel.getType());
         holder.occasionView.setText(carModel.getOccasion());
         holder.priceView.setText(carModel.getPrice()+ " " + context.getString(R.string.price_per_hour));

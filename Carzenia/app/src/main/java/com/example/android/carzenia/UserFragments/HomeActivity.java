@@ -19,12 +19,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.carzenia.SystemDatabase.DBHolders;
-import com.example.android.carzenia.SystemDatabase.DBManager;
 import com.example.android.carzenia.SystemDatabase.UserModel;
 import com.example.android.carzenia.UserAuthentication.LoginActivity;
 import com.example.android.carzenia.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -43,8 +40,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_home);
+        setContentView(R.layout.activity_customer_home);
 
+        // MAKING HOOKS
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         drawer = findViewById(R.id.drawer_layout);
@@ -60,12 +58,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                         userModel = snapshot.getValue(UserModel.class);
                         View header = navigationView.getHeaderView(0);
                         ImageView userImageView = header.findViewById(R.id.image_view_nav_user_image);
-                        if(userModel.getImageUrl()!=UserModel.NO_IMAGE)
+                        if (userModel.getImageUrl() != UserModel.NO_IMAGE)
                             Picasso.get().load(userModel.getImageUrl())
                                     .placeholder(R.mipmap.ic_launcher_round)
                                     .into(userImageView);
-                        ((TextView)header.findViewById(R.id.text_view_nav_username)).setText(userModel.getName());
-                        ((TextView)header.findViewById(R.id.text_view_nav_user_mail)).setText(userModel.getMail());
+                        ((TextView) header.findViewById(R.id.text_view_nav_username)).setText(userModel.getName());
+                        ((TextView) header.findViewById(R.id.text_view_nav_user_mail)).setText(userModel.getMail());
                     }
 
                     @Override
@@ -78,10 +76,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         toggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.HighlightColor));
-
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        if (savedInstanceState == null){
+
+        // HANDLING
+        if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new DisplayCarsFragment()).commit();
             navigationView.setCheckedItem(R.id.DisplayCarsNav);
@@ -91,7 +90,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     // NAV BAR EVENTS
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.DisplayCarsNav:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DisplayCarsFragment()).commit();
                 break;
@@ -126,13 +125,13 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onBackPressed() {
-        if(drawer.isDrawerOpen(GravityCompat.START))
+        if (drawer.isDrawerOpen(GravityCompat.START))
             drawer.closeDrawer(GravityCompat.START);
         else
             showAlertDialog();
     }
 
-    private void showAlertDialog(){
+    private void showAlertDialog() {
         AlertDialog.Builder alert = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.AlertDialogCustom));
         alert.setTitle(R.string.alert_title);
         alert.setMessage(R.string.alert_logout_body);

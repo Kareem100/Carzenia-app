@@ -13,11 +13,11 @@ import com.example.android.carzenia.R;
 
 import java.util.ArrayList;
 
-public class UserMessagesAdapter extends RecyclerView.Adapter<UserMessagesAdapter.MyViewHolder> {
+public class CustomerMessagesAdapter extends RecyclerView.Adapter<CustomerMessagesAdapter.MyViewHolder> {
 
     ArrayList<String> msg , ans;
     Context context;
-    public UserMessagesAdapter(Context ct , ArrayList<String> messages , ArrayList<String> answers ) {
+    public CustomerMessagesAdapter(Context ct , ArrayList<String> messages , ArrayList<String> answers ) {
         msg=messages;
         ans=answers;
         context=ct;
@@ -27,7 +27,7 @@ public class UserMessagesAdapter extends RecyclerView.Adapter<UserMessagesAdapte
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater=LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.activity_user_messages , parent , false);
+        View view = inflater.inflate(R.layout.activity_customer_messages, parent , false);
 
         return new MyViewHolder(view);
     }

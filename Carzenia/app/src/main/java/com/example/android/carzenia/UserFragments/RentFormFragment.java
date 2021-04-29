@@ -17,30 +17,29 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
-
-import com.example.android.carzenia.SystemDatabase.DBManager;
 import com.example.android.carzenia.R;
+import com.example.android.carzenia.SystemDatabase.DBHolders;
+import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class RentFormFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
-    private DatePickerDialog.OnDateSetListener d1, d2;
     private int dfYear, dfMonth, dfDay, dtYear, dtMonth, dtDay;
-    private Button DateTo, rent;
-    private DBManager DB;
-    private Spinner spinner;
-    private ImageView image;
+    private DatePickerDialog.OnDateSetListener dateSetListener_1, dateSetListener_2;
+    private Button DateTo, DateFrom, rent;
+    private Spinner carsIdSpinner;
+    private List<String> carsIdList;
+    private ArrayAdapter<String> spinnerAdapter;
+    private ImageView carImageView;
     private TextView typeTxt, occasionTxt, priceTxt;
-    private ArrayList<Integer> arrayList;
-    private ArrayAdapter<Integer> arrayAdapter;
 
     @Nullable
     @Override
@@ -49,58 +48,29 @@ public class RentFormFragment extends Fragment implements AdapterView.OnItemSele
         final View classView = inflater.inflate(R.layout.fragment_rent, container, false);
 
         /**************************/ // INSTANTIATION
-        DB = new DBManager(getContext());
-        spinner = classView.findViewById(R.id.spinner_rent_form);
-        image = classView.findViewById(R.id.image_view_rented_car);
-        typeTxt = classView.findViewById(R.id.text_view_rented_car_type);
-        occasionTxt = classView.findViewById(R.id.text_view_rented_car_occasion);
-        priceTxt = classView.findViewById(R.id.text_view_rented_car_price);
-        arrayList = DB.getAllCarsID();
-        arrayAdapter = new ArrayAdapter<Integer>(getContext(),
-                android.R.layout.simple_list_item_1, arrayList);
-        spinner.setAdapter(arrayAdapter);
-        spinner.setOnItemSelectedListener(this);
+        makeHooks(classView);
         /**************************/ // DEFAULT VALUES
-        String ID = "";
-        try {
-            ID = this.getArguments().getString("CarID");
-        } catch (Exception e) {
-            ID = "-1";
-        }
-
-        if (arrayList.isEmpty())
-            Toast.makeText(getContext(), "Sorry Still No Cars To Be Rented !!",
-                    Toast.LENGTH_LONG).show();
-        else if (!ID.equals("-1")) {
-            spinner.setSelection(Integer.valueOf(ID));
-        } else {
-            image.setImageBitmap(DB.getCarImage(arrayList.get(0)));
-            typeTxt.setText(DB.getCarType(arrayList.get(0)));
-            occasionTxt.setText(DB.getCarOccasion(arrayList.get(0)));
-            priceTxt.setText(DB.getCarPrice(arrayList.get(0)));
-        }
+        setDefaults();
         /**************************/
 
         Calendar c = Calendar.getInstance();
         final int CurrentYear = c.get(Calendar.YEAR);
         final int CurrentMonth = c.get(Calendar.MONTH);
         final int CurrentDay = c.get(Calendar.DAY_OF_MONTH);
-        rent = (Button) classView.findViewById(R.id.button_confirm_rent);
-        DateTo = (Button) classView.findViewById(R.id.button_date_to);
-        Button DateFrom = (Button) classView.findViewById(R.id.button_date_from);
 
+        /************ DATA FROM **************/
         DateFrom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DatePickerDialog datePicker = new DatePickerDialog(getContext(),
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-                        d2, CurrentYear, CurrentMonth, CurrentDay);
+                        dateSetListener_1, CurrentYear, CurrentMonth, CurrentDay);
                 datePicker.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 datePicker.show();
             }
         });
 
-        d2 = new DatePickerDialog.OnDateSetListener() {
+        dateSetListener_1 = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 dfYear = year;
@@ -112,28 +82,29 @@ public class RentFormFragment extends Fragment implements AdapterView.OnItemSele
                     c.set(Calendar.YEAR, year);
                     c.set(Calendar.MONTH, month);
                     c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                    String Cureentdate = s.format(c.getTime());
-                    TextView showselecteddate = (TextView) classView.findViewById(R.id.text_view_date_from);
-                    showselecteddate.setText(Cureentdate);
+                    String currentDate = s.format(c.getTime());
+                    TextView showSelectedDate = classView.findViewById(R.id.text_view_date_from);
+                    showSelectedDate.setText(currentDate);
                     DateTo.setVisibility(View.VISIBLE);
-                    ((TextView) classView.findViewById(R.id.text_view_date_to)).setVisibility(View.VISIBLE);
-                } else {
-                    Toast.makeText(getContext(), "Not valid date", Toast.LENGTH_LONG).show();
-                }
+                    (classView.findViewById(R.id.text_view_date_to)).setVisibility(View.VISIBLE);
+                } else
+                    Toast.makeText(getContext(), getString(R.string.toast_not_valid_date), Toast.LENGTH_LONG).show();
             }
         };
+
+        /************ DATA TO **************/
         DateTo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DatePickerDialog datePicker = new DatePickerDialog(getContext(),
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth, d1, CurrentYear, CurrentMonth, CurrentDay);
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth, dateSetListener_2, CurrentYear, CurrentMonth, CurrentDay);
                 datePicker.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 datePicker.show();
             }
 
         });
 
-        d1 = new DatePickerDialog.OnDateSetListener() {
+        dateSetListener_2 = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 dtYear = year;
@@ -141,28 +112,28 @@ public class RentFormFragment extends Fragment implements AdapterView.OnItemSele
                 dtDay = dayOfMonth;
                 if ((dtYear >= dfYear && dtMonth >= dfMonth && dtDay >= dfDay)) {
                     if (dtDay == dfDay && dtMonth == dfMonth && dtYear == dfYear) {
-                        Toast.makeText(getContext(), "Not valid date", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(), getString(R.string.toast_not_valid_date), Toast.LENGTH_LONG).show();
                     } else {
                         SimpleDateFormat s = new SimpleDateFormat("dd/MM/yyyy");
                         Calendar c = Calendar.getInstance();
                         c.set(Calendar.YEAR, year);
                         c.set(Calendar.MONTH, month);
                         c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                        String Cureentdate = s.format(c.getTime());
-                        TextView showselecteddate = (TextView) classView.findViewById(R.id.text_view_date_to);
-                        showselecteddate.setText(Cureentdate);
-                        TextView price = (TextView) classView.findViewById(R.id.text_view_total_rent_cost);
+                        String currentDate = s.format(c.getTime());
+                        TextView showSelectedDate = classView.findViewById(R.id.text_view_date_to);
+                        showSelectedDate.setText(currentDate);
+                        TextView price = classView.findViewById(R.id.text_view_total_rent_cost);
                         int hourCost = 1;
                         if (!priceTxt.getText().toString().isEmpty() &&
-                                !priceTxt.getText().toString().equals("Car Price/Hour")) {
+                                !priceTxt.getText().toString().equals(getString(R.string.car_price_per_hour))) {
                             hourCost = Integer.parseInt(priceTxt.getText().toString());
-                            price.setText(String.valueOf(((dtDay - dfDay) + (dtMonth - dfMonth) * 30
-                                    + (dtYear - dfYear) * 365) * 24 * hourCost + " L.E"));
+                            price.setText(((dtDay - dfDay) + (dtMonth - dfMonth) * 30
+                                    + (dtYear - dfYear) * 365) * 24 * hourCost + " L.E");
                             rent.setVisibility(View.VISIBLE);
                         }
                     }
                 } else {
-                    Toast.makeText(getContext(), "Not valid date", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), getString(R.string.toast_not_valid_date), Toast.LENGTH_LONG).show();
                 }
             }
         };
@@ -173,7 +144,7 @@ public class RentFormFragment extends Fragment implements AdapterView.OnItemSele
                 String T1 = ((TextView) classView.findViewById(R.id.text_view_date_from)).getText().toString();
                 String T2 = ((TextView) classView.findViewById(R.id.text_view_date_to)).getText().toString();
                 if (T1.isEmpty() || T2.isEmpty())
-                    Toast.makeText(getContext(), "Please Specify The Rental Duration !!",
+                    Toast.makeText(getContext(), getString(R.string.toast_add_rental_duration),
                             Toast.LENGTH_LONG).show();
                 else
                     showAlertDialog();
@@ -183,19 +154,66 @@ public class RentFormFragment extends Fragment implements AdapterView.OnItemSele
         return classView;
     }
 
+    private void makeHooks(View classView) {
+        carsIdSpinner = classView.findViewById(R.id.spinner_rent_form);
+        carImageView = classView.findViewById(R.id.image_view_rented_car);
+        typeTxt = classView.findViewById(R.id.text_view_rented_car_type);
+        occasionTxt = classView.findViewById(R.id.text_view_rented_car_occasion);
+        priceTxt = classView.findViewById(R.id.text_view_rented_car_price);
+        rent = classView.findViewById(R.id.button_confirm_rent);
+        DateTo = classView.findViewById(R.id.button_date_to);
+        DateFrom = classView.findViewById(R.id.button_date_from);
+
+        setCarsId();
+        spinnerAdapter = new ArrayAdapter<>(getContext(),
+                android.R.layout.simple_list_item_1, carsIdList);
+        carsIdSpinner.setAdapter(spinnerAdapter);
+        carsIdSpinner.setOnItemSelectedListener(this);
+    }
+
+    private void setDefaults() {
+        String carIdx = "";
+        try {
+            carIdx = this.getArguments().getString("CarID");
+        } catch (Exception e) {
+            carIdx = "-1";
+        }
+
+        if (DBHolders.carsData.isEmpty())
+            Toast.makeText(getContext(), getString(R.string.toast_no_cars_to_rent), Toast.LENGTH_LONG).show();
+        else if (!carIdx.equals("-1"))
+            carsIdSpinner.setSelection(Integer.valueOf(carIdx));
+        else
+            setUI(0);
+    }
+
+    private void setCarsId() {
+        carsIdList = new ArrayList<>();
+
+        for (int i = 0; i < DBHolders.carsData.size(); ++i)
+            carsIdList.add(String.valueOf(i + 1));
+    }
+
+    private void setUI(int pos) {
+        Picasso.get().load(DBHolders.carsData.get(pos).getImageUri()).into(carImageView);
+        typeTxt.setText(DBHolders.carsData.get(pos).getType());
+        occasionTxt.setText(DBHolders.carsData.get(pos).getOccasion());
+        priceTxt.setText(DBHolders.carsData.get(pos).getPrice());
+    }
+
     private void showAlertDialog() {
         AlertDialog.Builder alert = new AlertDialog.Builder(new ContextThemeWrapper(getContext(),
                 R.style.AlertDialogCustom));
-        alert.setTitle("RENTING");
-        alert.setMessage("Do You Want To Confirm Your Rental ?");
+        alert.setTitle(getString(R.string.alert_title));
+        alert.setMessage(getString(R.string.alert_confirm_rental_body));
         alert.setIcon(R.drawable.ic_top_car);
-        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        alert.setPositiveButton(getString(R.string.alert_positive_button), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(getContext(), "Rented Successfully", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), getString(R.string.toast_car_rented), Toast.LENGTH_LONG).show();
             }
         });
-        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        alert.setNegativeButton(getString(R.string.alert_negative_button), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
             }
@@ -205,13 +223,11 @@ public class RentFormFragment extends Fragment implements AdapterView.OnItemSele
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long id) {
-        image.setImageBitmap(DB.getCarImage(arrayList.get(pos)));
-        typeTxt.setText(DB.getCarType(arrayList.get(pos)));
-        occasionTxt.setText(DB.getCarOccasion(arrayList.get(pos)));
-        priceTxt.setText(DB.getCarPrice(arrayList.get(pos)));
+        setUI(pos);
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
     }
+
 }
