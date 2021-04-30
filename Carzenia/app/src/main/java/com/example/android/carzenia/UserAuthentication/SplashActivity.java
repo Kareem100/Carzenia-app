@@ -3,7 +3,9 @@ package com.example.android.carzenia.UserAuthentication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.ActivityOptions;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Pair;
@@ -12,7 +14,6 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +21,7 @@ import com.example.android.carzenia.AdminActivities.AdminActivity;
 import com.example.android.carzenia.R;
 import com.example.android.carzenia.SystemDatabase.CarModel;
 import com.example.android.carzenia.SystemDatabase.DBHolders;
+import com.example.android.carzenia.SystemDatabase.MessageModel;
 import com.example.android.carzenia.SystemDatabase.UserType;
 import com.example.android.carzenia.UserFragments.HomeActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,7 +30,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -61,10 +62,19 @@ public class SplashActivity extends AppCompatActivity {
         descriptionView.setAnimation(topAnimation);
     }
 
+    private boolean isNetworkConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        return cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected();
+    }
+
     @Override
     protected void onStart() {
         super.onStart();
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+
+        if (!isNetworkConnected())
+            Toast.makeText(SplashActivity.this,
+                    getString(R.string.toast_no_network), Toast.LENGTH_LONG).show();
 
         if (firebaseAuth.getCurrentUser() != null)
         {
@@ -72,12 +82,14 @@ public class SplashActivity extends AppCompatActivity {
             DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference()
                     .child(DBHolders.USERS_DATABASE_INFO_ROOT)
                     .child(firebaseAuth.getCurrentUser().getUid()).child("type");
+            
             databaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot)
                 {
                     UserType userType = snapshot.getValue(UserType.class);
                     setExhibition();
+                    setMessages();
                     manageLoggedInUser(userType);
                 }
 
@@ -91,6 +103,7 @@ public class SplashActivity extends AppCompatActivity {
 
         else {
             setExhibition();
+            setMessages();
             toLoginActivity();
         }
 
@@ -116,8 +129,30 @@ public class SplashActivity extends AppCompatActivity {
         });
     }
 
+    private void setMessages () {
+        DatabaseReference messagesRef = FirebaseDatabase.getInstance()
+                .getReference(DBHolders.MSSGS_DATABASE_INFO_ROOT);
+        messagesRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                DBHolders.messagesData.clear();
+                for(DataSnapshot messageObject : snapshot.getChildren()) {
+                    MessageModel messageModel = messageObject.getValue(MessageModel.class);
+
+                    DBHolders.messagesData.add(messageModel);
+                    DBHolders.messagesData.get(DBHolders.messagesData.size()-1).setID(messageObject.getKey());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(SplashActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     private void manageLoggedInUser(UserType userType) {
-        if (userType == UserType.Admin)
+        if (userType == UserType.ADMIN)
             startActivity(new Intent(SplashActivity.this, AdminActivity.class)
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
         else

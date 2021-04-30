@@ -1,8 +1,6 @@
 package com.example.android.carzenia.UserFragments;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -23,7 +21,6 @@ import com.example.android.carzenia.R;
 import com.example.android.carzenia.SystemDatabase.DBHolders;
 import com.example.android.carzenia.SystemDatabase.UserModel;
 import com.example.android.carzenia.SystemDatabase.UserType;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -182,7 +179,7 @@ public class UserProfileFragment extends Fragment {
     private void updateUserData(@Nullable final Bundle savedInstanceState, Uri imageUri) {
         UserModel userModel = new UserModel(nameTxt.getText().toString(),
                 mailTxt.getText().toString(), phoneTxt.getText().toString(),
-                UserType.Customer, imageUri.toString());
+                UserType.CUSTOMER, imageUri.toString());
         String branchID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         databaseRef.child(branchID).setValue(userModel);
         Toast.makeText(getContext(), getString(R.string.toast_data_saved),

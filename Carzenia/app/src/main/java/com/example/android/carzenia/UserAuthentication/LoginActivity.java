@@ -26,10 +26,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -108,7 +106,7 @@ public class LoginActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<DataSnapshot> task) {
                                     if (task.isSuccessful()) {
                                         UserModel userModel = task.getResult().getValue(UserModel.class);
-                                        if (userModel.getType().equals(UserType.Customer))
+                                        if (userModel.getType().equals(UserType.CUSTOMER))
                                             startActivity(new Intent(LoginActivity.this,
                                                     HomeActivity.class)); // FOR CUSTOMERS
                                         else

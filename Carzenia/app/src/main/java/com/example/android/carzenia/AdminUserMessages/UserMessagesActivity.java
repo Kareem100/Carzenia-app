@@ -24,10 +24,10 @@ public class UserMessagesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_ancor);
+        setContentView(R.layout.activity_admin_messages);
         db = new DBManager(this);
 
-        recyclerView = findViewById(R.id.rec);
+        recyclerView = findViewById(R.id.recycler_view_admin_messages);
         db.getAnswersForUser(FirebaseAuth.getInstance().getCurrentUser().getEmail());
         Messages = db.getMessage1();
         Answers = db.getAnswer1();
@@ -37,11 +37,11 @@ public class UserMessagesActivity extends AppCompatActivity {
                 recyclerView.setAdapter(customerMessagesAdapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(this));
             } else {
-                Toast.makeText(this, "No Messages yet", Toast.LENGTH_LONG);
+                Toast.makeText(this, getString(R.string.toast_no_messages), Toast.LENGTH_LONG);
             }
 
         } catch (NullPointerException ex) {
-            Toast.makeText(this, " Null pointer Exception", Toast.LENGTH_LONG);
+            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_LONG);
         }
     }
 }

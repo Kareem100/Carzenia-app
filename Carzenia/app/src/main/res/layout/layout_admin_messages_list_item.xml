@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/message_answer_height"
+    app:cardCornerRadius="30dp"
+    tools:context=".AdminUserMessages.AdminAnswersActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/BackgroundColor">
+
+        <LinearLayout
+            android:id="@+id/layout_admin_from_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/medium_spacing">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/medium_spacing"
+                android:textAllCaps="true"
+                android:textColor="@color/HighlightColor"
+                android:textSize="@dimen/text_size_small"
+                android:text="@string/from" />
+
+            <TextView
+                android:id="@+id/text_view_message_from_mail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_size_small"
+                tools:text="User Mail" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_admin_subject_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout_admin_from_container"
+            android:orientation="horizontal"
+            android:padding="@dimen/medium_spacing">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/medium_spacing"
+                android:textAllCaps="true"
+                android:textColor="@color/HighlightColor"
+                android:textSize="@dimen/text_size_small"
+                android:text="@string/subject" />
+
+            <TextView
+                android:id="@+id/text_view_message_subject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_size_small"
+                tools:text="Message Subject" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_body_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout_admin_subject_container"
+            android:orientation="horizontal"
+            android:padding="@dimen/medium_spacing">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/medium_spacing"
+                android:textAllCaps="true"
+                android:textColor="@color/HighlightColor"
+                android:textSize="@dimen/text_size_small"
+                android:text="@string/message" />
+
+            <TextView
+                android:id="@+id/text_view_message_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_corner"
+                android:padding="@dimen/medium_spacing"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_size_small"
+                tools:text="Message body" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_admin_message_show_cst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout_body_container"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="@dimen/small_spacing"
+            android:background="@drawable/rounded_corner3"
+            android:text="@string/show_cst" />
+
+        <Button
+            android:id="@+id/button_admin_message_respond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout_body_container"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/small_spacing"
+            android:background="@drawable/rounded_corner2"
+            android:text="@string/respond" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

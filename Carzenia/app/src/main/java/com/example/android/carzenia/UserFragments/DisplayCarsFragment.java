@@ -18,7 +18,7 @@ public class DisplayCarsFragment extends Fragment {
 
     private ListView listView;
     private CustomerCarsListAdapter adapter;
-    private final int RELOAD_TIME = 100;
+    private final int RELOAD_TIME = 200;
 
     @Nullable
     @Override

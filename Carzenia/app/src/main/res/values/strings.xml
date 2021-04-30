@@ -14,13 +14,17 @@
     <string name="contact_us">Contact Us...</string>
     <string name="send">SEND..!</string>
     <string name="contact_us_2">Contact Us</string>
-    <string name="issue">Issue</string>
-    <string name="other">Other</string>
+    <string name="issue">ISSUE</string>
+    <string name="other">OTHER</string>
     <string name="view_responses">View Responses</string>
+    <string name="from">From:</string>
+    <string name="subject">Subject:</string>
+    <string name="message">Message:</string>
     <string name="add_new_car">Add a New Car</string>
     <string name="add_new_admin">Add a New Admin</string>
     <string name="upload_image">Upload an image</string>
     <string name="respond">Respond</string>
+    <string name="show_cst">Show Customer Info</string>
     <string name="cars_exhibition">Car Exhibition</string>
     <string name="login">Login</string>
     <string name="signup">Sign Up</string>
@@ -73,6 +77,9 @@
     <string name="toast_empty_fields">Please Fill The Empty Fields !</string>
     <string name="toast_empty_mail">Please Enter Your Email !</string>
     <string name="toast_empty_pass">Please Enter Your Password !</string>
+    <string name="toast_choose_message_type">Please Choose Message Type !</string>
+    <string name="toast_empty_msg_subj">Please Enter Your Message Subject !</string>
+    <string name="toast_empty_msg_body">Please Enter Your Message Body !</string>
     <string name="toast_enter_car_image">Please Add The Car Image !</string>
     <string name="toast_enter_car_type">Please Mention The Car Type !</string>
     <string name="toast_enter_car_occasion">Please Mention The Car Occasion !</string>
@@ -105,12 +112,21 @@
     <string name="toast_car_with_id_removed">Car With ID: %1$s\nHas Been Removed</string>
     <string name="toast_car_with_id_updated">Car With ID: %1$s\nHas Been Updated</string>
     <string name="toast_not_valid_date">Not A Valid Date.</string>
+    <string name="toast_message_sent">Your Message Has Been Sent !</string>
+    <string name="toast_no_messages">There\'s No Message To Show !</string>
+    <string name="toast_sent_response">Your Response Sent Successfully !</string>
     <string name="toast_car_rented">Rented Successfully.</string>
 
     <string name="alert_title">ALERT</string>
+    <string name="alert_messages_title">Message Response !</string>
+    <string name="alert_cst_info_title">Customer Info !</string>
+    <string name="alert_write_response_here">write your response here...</string>
     <string name="alert_logout_body">Do You Want To Logout ?</string>
     <string name="alert_remove_all_cars_body">Are You Sure ?\nDo You Want To Remove All The Existing Cars ?</string>
     <string name="alert_confirm_rental_body">Do You Want To Confirm Your Rental ?</string>
     <string name="alert_positive_button">Yes</string>
     <string name="alert_negative_button">No</string>
+    <string name="alert_ok_button">Ok</string>
+    <string name="alert_message_positive_button">Send My Response!</string>
+    <string name="alert_message_negative_button">Cancel</string>
 </resources>

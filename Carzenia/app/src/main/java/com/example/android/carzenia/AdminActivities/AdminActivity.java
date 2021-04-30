@@ -2,22 +2,18 @@ package com.example.android.carzenia.AdminActivities;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.ImageView;
-
 import com.example.android.carzenia.AdminUserMessages.AdminAnswersActivity;
-import com.example.android.carzenia.SystemDatabase.DBManager;
 import com.example.android.carzenia.UserAuthentication.LoginActivity;
 import com.example.android.carzenia.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class AdminActivity extends AppCompatActivity {
-    private DBManager db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +26,7 @@ public class AdminActivity extends AppCompatActivity {
         androidx.cardview.widget.CardView displayCard = (androidx.cardview.widget.CardView)findViewById(R.id.card_view_display_cars);
         androidx.cardview.widget.CardView adminCard = (androidx.cardview.widget.CardView)findViewById(R.id.AddAdminBtn);
         androidx.cardview.widget.CardView logoutCard = (androidx.cardview.widget.CardView)findViewById(R.id.LogoutBtn);
-        ImageView viewMessags = (ImageView)findViewById(R.id.image_view_messages);
+        ImageView viewMessages = (ImageView)findViewById(R.id.image_view_messages);
 
         addCard.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -68,11 +64,9 @@ public class AdminActivity extends AppCompatActivity {
                 showAlertDialog();
             }
         });
-        viewMessags.setOnClickListener(new View.OnClickListener() {
+        viewMessages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                db=new DBManager(AdminActivity.this);
-                db.getMessagesForAdmin();
                 startActivity(new Intent(AdminActivity.this, AdminAnswersActivity.class));
             }
         });
@@ -85,10 +79,10 @@ public class AdminActivity extends AppCompatActivity {
 
     private void showAlertDialog(){
         AlertDialog.Builder alert = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.AlertDialogCustom));
-        alert.setTitle("ALERT");
-        alert.setMessage("Do You Want To Logout ?");
+        alert.setTitle(getString(R.string.alert_title));
+        alert.setMessage(getString(R.string.alert_logout_body));
         alert.setIcon(R.drawable.logout_icon);
-        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        alert.setPositiveButton(getString(R.string.alert_positive_button), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 FirebaseAuth.getInstance().signOut();
@@ -96,7 +90,7 @@ public class AdminActivity extends AppCompatActivity {
                 finish();
             }
         });
-        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        alert.setNegativeButton(getString(R.string.alert_negative_button), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
             }
