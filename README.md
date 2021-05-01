@@ -40,4 +40,4 @@
 
 ## 9- User Feedbacks, Admin Responses and Messages Database (Manar)
 ![](Screenshots/8_admin_responses.jpg)
-![](Screenshots/9_customer_messages.jpg)
+![](Screenshots/9_customer_show_messages.jpg)
