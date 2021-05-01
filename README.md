@@ -39,3 +39,5 @@
 ![](Screenshots/5_add_admin.jpg)
 
 ## 9- User Feedbacks, Admin Responses and Messages Database (Manar)
+![](Screenshots/8_admin_responses.jpg)
+![](Screenshots/9_customer_messages.jpg)
