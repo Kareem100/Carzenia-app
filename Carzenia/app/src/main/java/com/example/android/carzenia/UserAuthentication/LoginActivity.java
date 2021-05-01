@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mailText, passwordText;
     private ImageView logoImageView;
     private TextView loginTextView;
-    private Button login, signUp;
+    private Button login, signUp, forgetPassword;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseRef;
     private ProgressBar circularProgress;
@@ -65,6 +65,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        forgetPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, ForgetPasswordActivity.class));
+            }
+        });
+
     }
 
     private void makeHooks() {
@@ -72,6 +79,7 @@ public class LoginActivity extends AppCompatActivity {
         passwordText = findViewById(R.id.text_input_edit_text_login_password);
         login = findViewById(R.id.button_login);
         signUp = findViewById(R.id.button_signup_from_login);
+        forgetPassword = findViewById(R.id.button_forget_password);
         logoImageView = findViewById(R.id.login_image_view_logo);
         loginTextView = findViewById(R.id.text_view_login);
         circularProgress = findViewById(R.id.progress_login_circular);

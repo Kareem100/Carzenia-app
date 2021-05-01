@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.android.carzenia">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -16,9 +16,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
+        <activity android:name=".UserAuthentication.ForgetPasswordActivity" />
         <activity
             android:name=".AdminUserMessages.AdminResponsesActivity"
-            android:parentActivityName=".AdminActivities.AdminActivity"/>
+            android:parentActivityName=".AdminActivities.AdminActivity" />
         <activity android:name=".AdminUserMessages.CustomerMessagesActivity" />
         <activity
             android:name=".UserFragments.HomeActivity"
@@ -44,6 +45,7 @@
         <activity android:name=".UserAuthentication.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

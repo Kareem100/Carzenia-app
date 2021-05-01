@@ -9,6 +9,9 @@
         that is temporarily out of reach or out of service,
         for example travellers who are out of town or owners of damaged or destroyed vehicles
         who are awaiting repair or insurance compensation.</string>
+    <string name="forget_pass_info">Provide Your Account\'s email for which you want to reset your password !</string>
+    <string name="enter_mail">Enter Your Email</string>
+    <string name="next">Next</string>
     <string name="message_subject">Message Subject...</string>
     <string name="message_content">Your Message...</string>
     <string name="contact_us">Contact Us...</string>
@@ -34,6 +37,7 @@
     <string name="user_mail">E-mail</string>
     <string name="password">Password</string>
     <string name="forget_password">Forget Password?</string>
+    <string name="new_password">New Password</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="new_user_sign">New User? Sign Up</string>
     <string name="full_name">Full Name</string>
@@ -118,6 +122,7 @@
     <string name="toast_message_sent">Your Message Has Been Sent !</string>
     <string name="toast_sent_response">Your Response Sent Successfully !</string>
     <string name="toast_car_rented">Rented Successfully.</string>
+    <string name="toast_we_send_email_to_you">We Send You an Email\nPlease Check Your E-mail !</string>
 
     <string name="alert_title">ALERT</string>
     <string name="alert_messages_title">Message Response !</string>

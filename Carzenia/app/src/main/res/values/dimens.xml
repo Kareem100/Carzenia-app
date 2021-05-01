@@ -9,6 +9,7 @@
     <dimen name="car_image_dimensions_large">300dp</dimen>
     <dimen name="message_icon_dimensions">50dp</dimen>
     <dimen name="icons_dimensions">30dp</dimen>
+    <dimen name="icons_dimensions_large">80dp</dimen>
     <dimen name="icons_spacing">28dp</dimen>
     <dimen name="spinner_width">50dp</dimen>
     <dimen name="spinner_height">30dp</dimen>
