@@ -20,7 +20,7 @@ import android.widget.Toast;
 import com.example.android.carzenia.AdminActivities.AdminActivity;
 import com.example.android.carzenia.R;
 import com.example.android.carzenia.SystemDatabase.CarModel;
-import com.example.android.carzenia.SystemDatabase.DBHolders;
+import com.example.android.carzenia.SystemDatabase.DBHolder;
 import com.example.android.carzenia.SystemDatabase.MessageModel;
 import com.example.android.carzenia.SystemDatabase.UserType;
 import com.example.android.carzenia.UserFragments.HomeActivity;
@@ -80,7 +80,7 @@ public class SplashActivity extends AppCompatActivity {
         {
             // Handle The Logged in User
             DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference()
-                    .child(DBHolders.USERS_DATABASE_INFO_ROOT)
+                    .child(DBHolder.USERS_DATABASE_INFO_ROOT)
                     .child(firebaseAuth.getCurrentUser().getUid()).child("type");
             
             databaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -111,14 +111,14 @@ public class SplashActivity extends AppCompatActivity {
 
     private void setExhibition () {
         DatabaseReference carsRef = FirebaseDatabase.getInstance()
-                .getReference(DBHolders.CARS_DATABASE_INFO_ROOT);
+                .getReference(DBHolder.CARS_DATABASE_INFO_ROOT);
         carsRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                DBHolders.carsData.clear();
+                DBHolder.carsData.clear();
                 for(DataSnapshot carObject : snapshot.getChildren()) {
                     CarModel carModel = carObject.getValue(CarModel.class);
-                    DBHolders.carsData.add(carModel);
+                    DBHolder.carsData.add(carModel);
                 }
             }
 
@@ -131,16 +131,16 @@ public class SplashActivity extends AppCompatActivity {
 
     private void setMessages () {
         DatabaseReference messagesRef = FirebaseDatabase.getInstance()
-                .getReference(DBHolders.MSSGS_DATABASE_INFO_ROOT);
+                .getReference(DBHolder.MSSGS_DATABASE_INFO_ROOT);
         messagesRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                DBHolders.messagesData.clear();
+                DBHolder.messagesData.clear();
                 for(DataSnapshot messageObject : snapshot.getChildren()) {
                     MessageModel messageModel = messageObject.getValue(MessageModel.class);
 
-                    DBHolders.messagesData.add(messageModel);
-                    DBHolders.messagesData.get(DBHolders.messagesData.size()-1).setID(messageObject.getKey());
+                    DBHolder.messagesData.add(messageModel);
+                    DBHolder.messagesData.get(DBHolder.messagesData.size()-1).setID(messageObject.getKey());
                 }
             }
 

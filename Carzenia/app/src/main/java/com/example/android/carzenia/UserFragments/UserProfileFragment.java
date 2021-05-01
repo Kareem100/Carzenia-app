@@ -18,7 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.android.carzenia.R;
-import com.example.android.carzenia.SystemDatabase.DBHolders;
+import com.example.android.carzenia.SystemDatabase.DBHolder;
 import com.example.android.carzenia.SystemDatabase.UserModel;
 import com.example.android.carzenia.SystemDatabase.UserType;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -106,8 +106,8 @@ public class UserProfileFragment extends Fragment {
         saveChangesButton = view.findViewById(R.id.saveChangesBtn);
         circularProgress = view.findViewById(R.id.progress_profile_circular);
 
-        storageRef = FirebaseStorage.getInstance().getReference(DBHolders.USERS_DATABASE_IMG_ROOT);
-        databaseRef = FirebaseDatabase.getInstance().getReference(DBHolders.USERS_DATABASE_INFO_ROOT);
+        storageRef = FirebaseStorage.getInstance().getReference(DBHolder.USERS_DATABASE_IMG_ROOT);
+        databaseRef = FirebaseDatabase.getInstance().getReference(DBHolder.USERS_DATABASE_INFO_ROOT);
     }
 
     private boolean isValidData(String mail, String phone, String password) {

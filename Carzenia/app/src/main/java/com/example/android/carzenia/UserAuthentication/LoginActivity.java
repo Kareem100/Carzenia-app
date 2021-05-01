@@ -16,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.carzenia.AdminActivities.AdminActivity;
-import com.example.android.carzenia.SystemDatabase.DBHolders;
+import com.example.android.carzenia.SystemDatabase.DBHolder;
 import com.example.android.carzenia.R;
 import com.example.android.carzenia.SystemDatabase.UserModel;
 import com.example.android.carzenia.SystemDatabase.UserType;
@@ -76,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
         loginTextView = findViewById(R.id.text_view_login);
         circularProgress = findViewById(R.id.progress_login_circular);
         firebaseAuth = FirebaseAuth.getInstance();
-        databaseRef = FirebaseDatabase.getInstance().getReference(DBHolders.USERS_DATABASE_INFO_ROOT);
+        databaseRef = FirebaseDatabase.getInstance().getReference(DBHolder.USERS_DATABASE_INFO_ROOT);
     }
 
     private boolean isNetworkConnected() {

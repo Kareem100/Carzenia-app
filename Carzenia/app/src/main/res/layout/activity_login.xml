@@ -73,11 +73,10 @@
             <ProgressBar
                 android:id="@+id/progress_login_circular"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/large_spacing"
                 android:paddingRight="@dimen/large_spacing"
                 android:layout_centerInParent="true"
-                style="@style/Widget.AppCompat.ProgressBar"
-                android:visibility="invisible"/>
+                android:visibility="visible"/>
 
             <Button
                 android:layout_width="wrap_content"
@@ -86,6 +85,7 @@
                 android:layout_marginRight="@dimen/small_spacing"
                 android:layout_marginBottom="@dimen/medium_spacing"
                 android:background="@android:color/black"
+                android:textSize="@dimen/text_size_xx_small"
                 android:padding="@dimen/medium_spacing"
                 android:text="@string/forget_password"
                 android:textColor="@android:color/white" />

@@ -57,4 +57,7 @@ public class MessageModel {
         return response;
     }
 
+    public void setResponse(String response) {
+        this.response = response;
+    }
 }

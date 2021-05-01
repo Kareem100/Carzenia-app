@@ -18,7 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.android.carzenia.SystemDatabase.DBHolders;
+import com.example.android.carzenia.SystemDatabase.DBHolder;
 import com.example.android.carzenia.SystemDatabase.UserModel;
 import com.example.android.carzenia.UserAuthentication.LoginActivity;
 import com.example.android.carzenia.R;
@@ -50,7 +50,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         // FOR USER DATA
-        databaseRef = FirebaseDatabase.getInstance().getReference(DBHolders.USERS_DATABASE_INFO_ROOT);
+        databaseRef = FirebaseDatabase.getInstance().getReference(DBHolder.USERS_DATABASE_INFO_ROOT);
         databaseRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                 .addValueEventListener(new ValueEventListener() {
                     @Override

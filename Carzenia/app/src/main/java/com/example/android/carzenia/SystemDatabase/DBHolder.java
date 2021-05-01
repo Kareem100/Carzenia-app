@@ -3,7 +3,7 @@ package com.example.android.carzenia.SystemDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DBHolders {
+public class DBHolder {
 
     public static final String USERS_DATABASE_INFO_ROOT = "Users";
     public static final String CARS_DATABASE_INFO_ROOT = "Cars";

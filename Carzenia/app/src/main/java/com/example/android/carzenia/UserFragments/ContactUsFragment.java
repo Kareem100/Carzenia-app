@@ -17,14 +17,12 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import com.example.android.carzenia.SystemDatabase.DBHolders;
-import com.example.android.carzenia.SystemDatabase.DBManager;
+import com.example.android.carzenia.SystemDatabase.DBHolder;
 import com.example.android.carzenia.R;
-import com.example.android.carzenia.AdminUserMessages.UserMessagesActivity;
+import com.example.android.carzenia.AdminUserMessages.CustomerMessagesActivity;
 import com.example.android.carzenia.SystemDatabase.MessageModel;
 import com.example.android.carzenia.SystemDatabase.MessageType;
 import com.example.android.carzenia.SystemDatabase.UserModel;
-import com.example.android.carzenia.UserAuthentication.SplashActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -80,7 +78,7 @@ public class ContactUsFragment extends Fragment {
         viewResponsesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // startActivity(new Intent(ContactUsFragment.this.getContext(), UserMessagesActivity.class));
+                startActivity(new Intent(ContactUsFragment.this.getContext(), CustomerMessagesActivity.class));
             }
         });
 
@@ -124,13 +122,13 @@ public class ContactUsFragment extends Fragment {
             inProgress = true;
             circularProgress.setVisibility(View.VISIBLE);
             String uID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-            DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference(DBHolders.USERS_DATABASE_INFO_ROOT);
+            DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference(DBHolder.USERS_DATABASE_INFO_ROOT);
             usersRef.child(uID).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     UserModel from = snapshot.getValue(UserModel.class);
 
-                    DatabaseReference msgRef = FirebaseDatabase.getInstance().getReference(DBHolders.MSSGS_DATABASE_INFO_ROOT);
+                    DatabaseReference msgRef = FirebaseDatabase.getInstance().getReference(DBHolder.MSSGS_DATABASE_INFO_ROOT);
                     DatabaseReference postMsgRef = msgRef.push();
                     MessageModel messageModel = new MessageModel(postMsgRef.getKey(), from, type, subject, body, false, "");
 

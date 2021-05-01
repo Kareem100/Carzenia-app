@@ -17,9 +17,9 @@
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
         <activity
-            android:name=".AdminUserMessages.AdminAnswersActivity"
+            android:name=".AdminUserMessages.AdminResponsesActivity"
             android:parentActivityName=".AdminActivities.AdminActivity"/>
-        <activity android:name=".AdminUserMessages.UserMessagesActivity" />
+        <activity android:name=".AdminUserMessages.CustomerMessagesActivity" />
         <activity
             android:name=".UserFragments.HomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />

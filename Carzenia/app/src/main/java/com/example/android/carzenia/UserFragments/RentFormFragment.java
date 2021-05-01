@@ -22,7 +22,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import com.example.android.carzenia.R;
-import com.example.android.carzenia.SystemDatabase.DBHolders;
+import com.example.android.carzenia.SystemDatabase.DBHolder;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
@@ -179,7 +179,7 @@ public class RentFormFragment extends Fragment implements AdapterView.OnItemSele
             carIdx = "-1";
         }
 
-        if (DBHolders.carsData.isEmpty())
+        if (DBHolder.carsData.isEmpty())
             Toast.makeText(getContext(), getString(R.string.toast_no_cars_to_rent), Toast.LENGTH_LONG).show();
         else if (!carIdx.equals("-1"))
             carsIdSpinner.setSelection(Integer.valueOf(carIdx));
@@ -190,15 +190,15 @@ public class RentFormFragment extends Fragment implements AdapterView.OnItemSele
     private void setCarsId() {
         carsIdList = new ArrayList<>();
 
-        for (int i = 0; i < DBHolders.carsData.size(); ++i)
+        for (int i = 0; i < DBHolder.carsData.size(); ++i)
             carsIdList.add(String.valueOf(i + 1));
     }
 
     private void setUI(int pos) {
-        Picasso.get().load(DBHolders.carsData.get(pos).getImageUri()).into(carImageView);
-        typeTxt.setText(DBHolders.carsData.get(pos).getType());
-        occasionTxt.setText(DBHolders.carsData.get(pos).getOccasion());
-        priceTxt.setText(DBHolders.carsData.get(pos).getPrice());
+        Picasso.get().load(DBHolder.carsData.get(pos).getImageUri()).into(carImageView);
+        typeTxt.setText(DBHolder.carsData.get(pos).getType());
+        occasionTxt.setText(DBHolder.carsData.get(pos).getOccasion());
+        priceTxt.setText(DBHolder.carsData.get(pos).getPrice());
     }
 
     private void showAlertDialog() {

@@ -18,7 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.android.carzenia.R;
-import com.example.android.carzenia.SystemDatabase.DBHolders;
+import com.example.android.carzenia.SystemDatabase.DBHolder;
 import com.example.android.carzenia.SystemDatabase.MessageModel;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -29,9 +29,11 @@ public class AdminMessagesAdapter extends RecyclerView.Adapter<AdminMessagesAdap
 
     private Context context;
     private List<MessageModel> messagesList;
+    private TextView noMessagesTextView;
 
-    public AdminMessagesAdapter(Context context, List<MessageModel> messagesList) {
+    public AdminMessagesAdapter(Context context, TextView noMessagesTextView, List<MessageModel> messagesList) {
         this.context = context;
+        this.noMessagesTextView = noMessagesTextView;
         this.messagesList = messagesList;
     }
 
@@ -91,6 +93,10 @@ public class AdminMessagesAdapter extends RecyclerView.Adapter<AdminMessagesAdap
                 // ************************ SAVE ADMIN RESPONSE ************************ //
                 String response = enteredText.getText().toString();
                 addResponseToFirebase(pos, response);
+                messagesList.remove(pos);
+                notifyDataSetChanged();
+                if (messagesList.isEmpty())
+                    noMessagesTextView.setVisibility(View.VISIBLE);
             }
         });
 
@@ -113,7 +119,7 @@ public class AdminMessagesAdapter extends RecyclerView.Adapter<AdminMessagesAdap
             Toast.makeText(context, context.getString(R.string.toast_no_network), Toast.LENGTH_SHORT).show();
         else if (!response.equals(""))
         {
-            DatabaseReference msgRef = FirebaseDatabase.getInstance().getReference(DBHolders.MSSGS_DATABASE_INFO_ROOT);
+            DatabaseReference msgRef = FirebaseDatabase.getInstance().getReference(DBHolder.MSSGS_DATABASE_INFO_ROOT);
             msgRef.child(ID).child("seen").setValue(true);
             msgRef.child(ID).child("response").setValue(response);
             Toast.makeText(context, context.getText(R.string.toast_sent_response), Toast.LENGTH_LONG).show();
@@ -161,7 +167,7 @@ public class AdminMessagesAdapter extends RecyclerView.Adapter<AdminMessagesAdap
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             cstMailText = itemView.findViewById(R.id.text_view_message_from_mail);
-            subjectText = itemView.findViewById(R.id.text_view_message_subject);
+            subjectText = itemView.findViewById(R.id.text_view_admin_message_subject);
             bodyText = itemView.findViewById(R.id.text_view_message_content);
             respondButton = itemView.findViewById(R.id.button_admin_message_respond);
             showCstInfoButton = itemView.findViewById(R.id.button_admin_message_show_cst);

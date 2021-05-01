@@ -20,7 +20,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import com.example.android.carzenia.R;
 import com.example.android.carzenia.SystemDatabase.CarModel;
-import com.example.android.carzenia.SystemDatabase.DBHolders;
+import com.example.android.carzenia.SystemDatabase.DBHolder;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
@@ -86,7 +86,7 @@ public class UpdateCarActivity extends AppCompatActivity implements AdapterView.
         saveChangesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (DBHolders.carsData.isEmpty())
+                if (DBHolder.carsData.isEmpty())
                     Toast.makeText(UpdateCarActivity.this,
                             getString(R.string.toast_no_car_to_update), Toast.LENGTH_SHORT).show();
                 else
@@ -120,8 +120,8 @@ public class UpdateCarActivity extends AppCompatActivity implements AdapterView.
         spinnerAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, carsIdList);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference(DBHolders.CARS_DATABASE_INFO_ROOT);
-        storageReference = FirebaseStorage.getInstance().getReference(DBHolders.CARS_DATABASE_IMG_ROOT);
+        databaseReference = FirebaseDatabase.getInstance().getReference(DBHolder.CARS_DATABASE_INFO_ROOT);
+        storageReference = FirebaseStorage.getInstance().getReference(DBHolder.CARS_DATABASE_IMG_ROOT);
     }
 
     private boolean isNetworkConnected() {
@@ -152,7 +152,7 @@ public class UpdateCarActivity extends AppCompatActivity implements AdapterView.
     private void setCarsId() {
         carsIdList = new ArrayList<>();
 
-        for (int i = 0; i < DBHolders.carsData.size(); ++i)
+        for (int i = 0; i < DBHolder.carsData.size(); ++i)
             carsIdList.add(String.valueOf(i + 1));
     }
 
@@ -182,11 +182,11 @@ public class UpdateCarActivity extends AppCompatActivity implements AdapterView.
     public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long id) {
         selectedID = String.valueOf(pos);
         try {
-            Picasso.get().load(DBHolders.carsData.get(pos).getImageUri())
+            Picasso.get().load(DBHolder.carsData.get(pos).getImageUri())
                     .placeholder(R.mipmap.ic_launcher_round).into(carImageView);
-            typeTxt.setText(DBHolders.carsData.get(pos).getType());
-            occasionTxt.setText(DBHolders.carsData.get(pos).getOccasion());
-            priceTxt.setText(DBHolders.carsData.get(pos).getPrice());
+            typeTxt.setText(DBHolder.carsData.get(pos).getType());
+            occasionTxt.setText(DBHolder.carsData.get(pos).getOccasion());
+            priceTxt.setText(DBHolder.carsData.get(pos).getPrice());
         } catch (Exception e) {
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
@@ -201,7 +201,7 @@ public class UpdateCarActivity extends AppCompatActivity implements AdapterView.
     private void updateCarData(final String type, final String occasion, final String price) {
         circularProgress.setVisibility(View.VISIBLE);
         final int carIdx = Integer.valueOf(selectedID);
-        final String carID = DBHolders.carsData.get(carIdx).getId();
+        final String carID = DBHolder.carsData.get(carIdx).getId();
 
         if (carImageUri != null)
         {
@@ -246,7 +246,7 @@ public class UpdateCarActivity extends AppCompatActivity implements AdapterView.
 
         else
         {
-            String imageUri = DBHolders.carsData.get(carIdx).getImageUri();
+            String imageUri = DBHolder.carsData.get(carIdx).getImageUri();
             updateDatabase(carIdx, carID, type, occasion, price, imageUri);
             circularProgress.setVisibility(View.INVISIBLE);
         }

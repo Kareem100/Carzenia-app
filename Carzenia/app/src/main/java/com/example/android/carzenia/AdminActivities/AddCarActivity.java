@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 import com.example.android.carzenia.R;
 import com.example.android.carzenia.SystemDatabase.CarModel;
-import com.example.android.carzenia.SystemDatabase.DBHolders;
+import com.example.android.carzenia.SystemDatabase.DBHolder;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
@@ -78,8 +78,8 @@ public class AddCarActivity extends AppCompatActivity {
         occasionInputText = findViewById(R.id.CarOccasionInput);
         priceInputText = findViewById(R.id.CarPriceInput);
         circularProgress = findViewById(R.id.progress_add_car);
-        databaseReference = FirebaseDatabase.getInstance().getReference(DBHolders.CARS_DATABASE_INFO_ROOT);
-        storageReference = FirebaseStorage.getInstance().getReference(DBHolders.CARS_DATABASE_IMG_ROOT);
+        databaseReference = FirebaseDatabase.getInstance().getReference(DBHolder.CARS_DATABASE_INFO_ROOT);
+        storageReference = FirebaseStorage.getInstance().getReference(DBHolder.CARS_DATABASE_IMG_ROOT);
     }
 
     private boolean isNetworkConnected() {

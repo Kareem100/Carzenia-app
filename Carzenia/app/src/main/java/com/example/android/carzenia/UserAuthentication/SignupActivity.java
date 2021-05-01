@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.android.carzenia.SystemDatabase.DBHolders;
+import com.example.android.carzenia.SystemDatabase.DBHolder;
 import com.example.android.carzenia.SystemDatabase.UserModel;
 import com.example.android.carzenia.R;
 import com.example.android.carzenia.SystemDatabase.UserType;
@@ -115,7 +115,7 @@ public class SignupActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     // Storing the Additional fields in the firebase Database
                     UserModel userModel = new UserModel(userName, mail, phone, UserType.CUSTOMER, "");
-                    FirebaseDatabase.getInstance().getReference(DBHolders.USERS_DATABASE_INFO_ROOT)
+                    FirebaseDatabase.getInstance().getReference(DBHolder.USERS_DATABASE_INFO_ROOT)
                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                     .setValue(userModel).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override

@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.ImageView;
-import com.example.android.carzenia.AdminUserMessages.AdminAnswersActivity;
+import com.example.android.carzenia.AdminUserMessages.AdminResponsesActivity;
 import com.example.android.carzenia.UserAuthentication.LoginActivity;
 import com.example.android.carzenia.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -67,7 +67,7 @@ public class AdminActivity extends AppCompatActivity {
         viewMessages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AdminActivity.this, AdminAnswersActivity.class));
+                startActivity(new Intent(AdminActivity.this, AdminResponsesActivity.class));
             }
         });
     }

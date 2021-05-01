@@ -14,7 +14,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.android.carzenia.R;
-import com.example.android.carzenia.SystemDatabase.DBHolders;
+import com.example.android.carzenia.SystemDatabase.DBHolder;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -95,8 +95,8 @@ public class RemoveCarsActivity extends AppCompatActivity implements AdapterView
         spinnerAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, carsIdList);
 
-        carsRef = FirebaseDatabase.getInstance().getReference(DBHolders.CARS_DATABASE_INFO_ROOT);
-        imgRef = FirebaseStorage.getInstance().getReference(DBHolders.CARS_DATABASE_IMG_ROOT);
+        carsRef = FirebaseDatabase.getInstance().getReference(DBHolder.CARS_DATABASE_INFO_ROOT);
+        imgRef = FirebaseStorage.getInstance().getReference(DBHolder.CARS_DATABASE_IMG_ROOT);
     }
 
     private void showAlertDialog() {
@@ -122,13 +122,13 @@ public class RemoveCarsActivity extends AppCompatActivity implements AdapterView
     private void setCarsId() {
         carsIdList = new ArrayList<>();
 
-        for (int i = 0; i < DBHolders.carsData.size(); ++i)
+        for (int i = 0; i < DBHolder.carsData.size(); ++i)
             carsIdList.add(String.valueOf(i + 1));
     }
 
     private void removeCarFromFirebase(String carIdx) {
         int removedID = Integer.valueOf(carIdx);
-        String carID = DBHolders.carsData.get(removedID).getId();
+        String carID = DBHolder.carsData.get(removedID).getId();
         carsRef.child(carID).removeValue();
         imgRef.child(carID).delete();
         carsIdList.remove(removedID);
@@ -140,13 +140,13 @@ public class RemoveCarsActivity extends AppCompatActivity implements AdapterView
                 getString(R.string.toast_car_with_id_removed, String.valueOf(removedID + 1)), Toast.LENGTH_LONG).show();
 
         resetFields();
-        if (removedID == 0 && DBHolders.carsData.size() >= 2)
+        if (removedID == 0 && DBHolder.carsData.size() >= 2)
             setUI(removedID + 1);
     }
 
     private void removeAllCarsFromFirebase() {
-        for (int i = 0; i < DBHolders.carsData.size(); ++i)
-            imgRef.child(DBHolders.carsData.get(i).getId()).delete();
+        for (int i = 0; i < DBHolder.carsData.size(); ++i)
+            imgRef.child(DBHolder.carsData.get(i).getId()).delete();
         carsRef.removeValue();
         carsIdList.clear();
         spinnerAdapter.notifyDataSetChanged();
@@ -172,11 +172,11 @@ public class RemoveCarsActivity extends AppCompatActivity implements AdapterView
     }
 
     private void setUI(int pos) {
-        Picasso.get().load(DBHolders.carsData.get(pos).getImageUri())
+        Picasso.get().load(DBHolder.carsData.get(pos).getImageUri())
                 .placeholder(R.mipmap.ic_launcher_round).into(carImageView);
-        typeTxt.setText(DBHolders.carsData.get(pos).getType());
-        occasionTxt.setText(DBHolders.carsData.get(pos).getOccasion());
-        priceTxt.setText(DBHolders.carsData.get(pos).getPrice());
+        typeTxt.setText(DBHolder.carsData.get(pos).getType());
+        occasionTxt.setText(DBHolder.carsData.get(pos).getOccasion());
+        priceTxt.setText(DBHolder.carsData.get(pos).getPrice());
     }
 
     private void resetFields() {

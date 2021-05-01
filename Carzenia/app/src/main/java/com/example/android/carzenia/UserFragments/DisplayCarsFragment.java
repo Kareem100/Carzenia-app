@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.example.android.carzenia.Adapters.CustomerCarsListAdapter;
 import com.example.android.carzenia.R;
-import com.example.android.carzenia.SystemDatabase.DBHolders;
+import com.example.android.carzenia.SystemDatabase.DBHolder;
 
 public class DisplayCarsFragment extends Fragment {
 
@@ -27,11 +27,11 @@ public class DisplayCarsFragment extends Fragment {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (DBHolders.carsData.isEmpty())
+                if (DBHolder.carsData.isEmpty())
                     Toast.makeText(getContext(), getString(R.string.toast_no_cars_to_show), Toast.LENGTH_SHORT).show();
                 else {
                     listView = view.findViewById(R.id.list_view_users_display);
-                    adapter = new CustomerCarsListAdapter(getActivity(), R.layout.layout_user_car_item, DBHolders.carsData);
+                    adapter = new CustomerCarsListAdapter(getActivity(), R.layout.layout_user_car_item, DBHolder.carsData);
                     listView.setAdapter(adapter);
                 }
             }

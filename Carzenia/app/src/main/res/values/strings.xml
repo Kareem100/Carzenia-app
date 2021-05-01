@@ -20,6 +20,9 @@
     <string name="from">From:</string>
     <string name="subject">Subject:</string>
     <string name="message">Message:</string>
+    <string name="response">Response:</string>
+    <string name="no_messages">There\'s No Message To Show !</string>
+    <string name="no_response">No Response Yet !</string>
     <string name="add_new_car">Add a New Car</string>
     <string name="add_new_admin">Add a New Admin</string>
     <string name="upload_image">Upload an image</string>
@@ -113,7 +116,6 @@
     <string name="toast_car_with_id_updated">Car With ID: %1$s\nHas Been Updated</string>
     <string name="toast_not_valid_date">Not A Valid Date.</string>
     <string name="toast_message_sent">Your Message Has Been Sent !</string>
-    <string name="toast_no_messages">There\'s No Message To Show !</string>
     <string name="toast_sent_response">Your Response Sent Successfully !</string>
     <string name="toast_car_rented">Rented Successfully.</string>
 
