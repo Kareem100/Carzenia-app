@@ -81,7 +81,7 @@
     <string name="display_cars">Display Cars</string>
     <string name="add_admin">Add Admin</string>
 
-    <string name="toast_empty_fields">Please Fill The Empty Fields !</string>
+    <string name="toast_empty_fields">Please Fill The Empty Field !</string>
     <string name="toast_empty_mail">Please Enter Your Email !</string>
     <string name="toast_empty_pass">Please Enter Your Password !</string>
     <string name="toast_choose_message_type">Please Choose Message Type !</string>

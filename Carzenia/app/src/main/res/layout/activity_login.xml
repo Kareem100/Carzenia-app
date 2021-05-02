@@ -12,7 +12,8 @@
         android:id="@+id/login_image_view_logo"
         android:layout_width="match_parent"
         android:layout_height="@dimen/splash_cover_height"
-        android:src="@drawable/logo2"
+        android:src="@drawable/logo"
+        android:layout_marginTop="@dimen/medium_spacing"
         android:transitionName="logo_image" />
 
     <TextView
@@ -33,12 +34,12 @@
         android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/DefaultText"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:hint="@string/user_mail"
-            android:textColorHint="@android:color/black">
+            android:textColorHint="@android:color/white">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/text_input_edit_text_login_username"
@@ -50,11 +51,11 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/DefaultText"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password"
-            android:textColorHint="@android:color/black"
+            android:textColorHint="@android:color/white"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -76,7 +77,7 @@
                 android:layout_height="@dimen/large_spacing"
                 android:paddingRight="@dimen/large_spacing"
                 android:layout_centerInParent="true"
-                android:visibility="visible"/>
+                android:visibility="invisible"/>
 
             <Button
                 android:id="@+id/button_forget_password"

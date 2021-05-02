@@ -78,11 +78,11 @@ public class RentFormFragment extends Fragment implements AdapterView.OnItemSele
                 dfDay = dayOfMonth;
                 if (dfYear >= CurrentYear && dfMonth >= CurrentMonth && dfDay >= CurrentDay) {
                     SimpleDateFormat s = new SimpleDateFormat("dd/MM/yyyy");
-                    Calendar c = Calendar.getInstance();
-                    c.set(Calendar.YEAR, year);
-                    c.set(Calendar.MONTH, month);
-                    c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                    String currentDate = s.format(c.getTime());
+                    Calendar calendear = Calendar.getInstance();
+                    calendear.set(Calendar.YEAR, year);
+                    calendear.set(Calendar.MONTH, month);
+                    calendear.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                    String currentDate = s.format(calendear.getTime());
                     TextView showSelectedDate = classView.findViewById(R.id.text_view_date_from);
                     showSelectedDate.setText(currentDate);
                     DateTo.setVisibility(View.VISIBLE);

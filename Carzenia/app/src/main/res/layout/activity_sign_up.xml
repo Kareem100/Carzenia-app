@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/splash_cover_height"
             android:layout_marginTop="@dimen/small_spacing"
-            android:src="@drawable/logo2"
+            android:src="@drawable/logo"
             android:transitionName="logo_image" />
 
         <TextView
@@ -33,6 +33,7 @@
             android:transitionName="logo_text" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_signup_fullname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/small_spacing"
@@ -42,7 +43,6 @@
             android:textColorHint="@color/HighlightColor">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/text_input_edit_text_signup_fullname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/comic_font"
@@ -52,6 +52,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_signup_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/small_spacing"
@@ -61,16 +62,16 @@
             android:textColorHint="@color/HighlightColor">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/text_input_edit_text_signup_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/comic_font"
-                android:inputType="text"
+                android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:textColor="@color/FontColor" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_signup_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/small_spacing"
@@ -80,16 +81,16 @@
             android:textColorHint="@color/HighlightColor">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/text_input_edit_text_signup_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/comic_font"
-                android:inputType="number"
+                android:inputType="phone"
                 android:maxLines="1"
                 android:textColor="@color/FontColor" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_signup_pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/small_spacing"
@@ -100,7 +101,6 @@
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/text_input_edit_text_signup_pass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/comic_font"
@@ -110,6 +110,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_signup_confirm_pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/small_spacing"
@@ -120,7 +121,6 @@
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/text_input_edit_text_signup_confirm_pass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/comic_font"

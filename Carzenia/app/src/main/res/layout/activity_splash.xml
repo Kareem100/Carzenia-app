@@ -13,7 +13,7 @@
         android:layout_marginLeft="@dimen/splash_cover_spacing"
         android:layout_marginTop="@dimen/splash_cover_height"
         android:layout_marginRight="@dimen/splash_cover_spacing"
-        android:src="@drawable/logo2"
+        android:src="@drawable/logo"
         android:transitionName="logo_image" />
 
     <TextView
