@@ -13,31 +13,35 @@
 - OOP Concepts
 - MVC Model
 ***
+##### Released apk
+["Download Link"](https://drive.google.com/file/d/17abAueoXWRjoKGlX9Br4Z0-uQKma63et/view?usp=sharing)
+***
 ## 1- Main Activity (Kareem)
 ![](Screenshots/0_splash_screen.jpg)
 
 ## 2- Login & Signup Activities (Mai)
 ![](Screenshots/1_login_activity.jpg)
+![](Screenshots/2_forget_password_activity.jpg)
 
 ## 3- Admin, AddCar & Database Creation (Kareem)
-![](Screenshots/2_admin_activity.jpg)
-![](Screenshots/3_add_car.jpg)
+![](Screenshots/3_admin_activity.jpg)
+![](Screenshots/4_add_car.jpg)
 
 ## 4- About, Contact, Remove & Display Cars For Admins Activities (Kareem)
-![](Screenshots/4_remove_car.jpg)
+![](Screenshots/5_remove_car.jpg)
 
 ## 5- Display Cars For User Activity (Manar)
-![](Screenshots/6_cars_exhibition.jpg)
+![](Screenshots/7_cars_exhibition.jpg)
 
 ## 6- Rent Form Activity (Youssef)
 
 
 ## 7- User Profile Activity (Mai)
-![](Screenshots/7_user_profile.jpg)
+![](Screenshots/8_user_profile.jpg)
 
 ## 8- Alerts, Update Car, Add Admin, Fragments, Navigation Menue, Display Cars For Admins, Customer Database (Kareem)
-![](Screenshots/5_add_admin.jpg)
+![](Screenshots/6_add_admin.jpg)
 
 ## 9- User Feedbacks, Admin Responses and Messages Database (Manar)
-![](Screenshots/8_admin_responses.jpg)
-![](Screenshots/9_customer_show_messages.jpg)
+![](Screenshots/9_admin_responses.jpg)
+![](Screenshots/10_customer_show_messages.jpg)
